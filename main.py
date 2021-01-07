@@ -1,33 +1,42 @@
 from tkinter import *
 from PIL import ImageTk, Image
+import tkinter.font as font
 
 root = Tk()
 root.geometry("1200x800")
 root.iconbitmap("img/drone33.ico")
 root.title("sauvegarde / export drone33")
 root.resizable(False, False)
-root.config(background='black')
+root.config(background='#000')
 
 
 # creation functions
-def create_button():
-    return
+def create_button(button_text, posx, posy):
+    button = Button(root, text=button_text, bg='#b40108', fg='#fff', bd=0, padx=18.45, pady=15.45)
+    font_button = font.Font(family="Segoe UI", size=14, weight='bold')
+    button['font'] = font_button
+    button.place(x=posx, y=posy)
+    return button
 
 
 # event trigger functions
-def clicked_button(buttonNumber):
-    if buttonNumber == 1:
-        message = Label(root, text="J'effectue une restauration du site drone 33")
-    elif buttonNumber == 2:
-        message = Label(root, text="Je déploie un nouveau site")
-    message.grid(row=3, column=0)
+def save():
+    print("sauvegarde")
 
+
+def migrate():
+    print("migration")
 
 # creating a label widget and implementing elements on the grid
-drone_img = ImageTk.PhotoImage(Image.open("img/logo-drone33.png"))
-drone_label = Label(image=drone_img, bd=0).place(x=500, y=350)
-# button1 = Button(root, text="restauration", command=lambda: clicked_button(1)).grid(row=0, column=0)
-# button2 = Button(root, text="déployer un nouveau site", command=lambda: clicked_button(2)).grid(row=1, column=0)
+picture = Image.open("img/logo-drone33.png")
+logo = picture.resize((400, 250), Image.ANTIALIAS)
+drone_img = ImageTk.PhotoImage(logo)
+drone_label = Label(image=drone_img, bd=0).place(x=390, y=260)
+sauvegarde = create_button("SAUVEGARDER", 165, 350)
+migration = create_button(" MIGRATION ", 835, 350)
+sauvegarde["command"] = save
+migration["command"] = migrate
+
 
 # program loop
 root.mainloop()
