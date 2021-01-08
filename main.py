@@ -19,6 +19,16 @@ def create_button(window, button_text, posx, posy):
     return button
 
 
+def create_input(window, text_label, label_posx, label_posy, input_posx, input_posy):
+    user_label = Label(window, text=text_label, font="none 14 bold", bg='#b40108', fg='#fff', bd=0, width="20", justify=CENTER, padx=10, pady=10)\
+        .grid(sticky=W, row=label_row, column=label_col)
+    user_input = Entry(window, bg='#b40108', fg='#fff', bd=0, width="60", justify=CENTER)
+    font_input = font.Font(family="Segoe UI", size=14, weight='bold')
+    user_input['font'] = font_input
+    user_input.grid(row=input_row, column=input_col, pady=10)
+    return user_input
+
+
 # event trigger functions
 def save():
     print("sauvegarde")
@@ -31,9 +41,10 @@ def open_migration_window():
     mig_wd.title("exportation du site")
     mig_wd.resizable(False, False)
     mig_wd.config(background='#000')
-    nom = create_button(mig_wd, "nom", 100, 100)
-    url = create_button(mig_wd, "url", 300, 100)
-    logo = create_button(mig_wd, "logo", 100, 200)
+    nom = create_input(mig_wd, 'nom', 1, 0, 1, 1)
+    url = create_input(mig_wd, 'url', 2, 0, 2, 1)
+    username = create_input(mig_wd, 'nom nouvel admin', 3, 0, 3, 1 )
+    user_logo = create_button(mig_wd, "logo", 100, 200)
     accueil = create_button(mig_wd, "accueil", 100, 300)
     services = create_button(mig_wd, "services", 300, 300)
     pilotes = create_button(mig_wd, "tele_pilotes", 500, 300)
