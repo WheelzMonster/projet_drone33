@@ -31,7 +31,14 @@ def open_migration_window():
     mig_wd.title("exportation du site")
     mig_wd.resizable(False, False)
     mig_wd.config(background='#000')
-    test = create_button(mig_wd, "test", 500, 500)
+    nom = create_button(mig_wd, "nom", 500, 500)
+    url = create_button(mig_wd, "url", 500, 500)
+    logo = create_button(mig_wd, "logo", 500, 500)
+    accueil = create_button(mig_wd, "accueil", 500, 500)
+    services = create_button(mig_wd, "services", 500, 500)
+    tele_pilotes = create_button(mig_wd, "tele_pilotes", 500, 500)
+    realisations = create_button(mig_wd, "realisations", 500, 500)
+    contact = create_button(mig_wd, "contact", 500, 500)
 
 
 # all widgets in the main window
