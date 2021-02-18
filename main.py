@@ -2,6 +2,8 @@ from tkinter import *
 from PIL import ImageTk, Image
 import tkinter.font as font
 from tkinter import filedialog
+from pathlib import Path
+import shutil
 
 root = Tk()
 root.geometry("1200x800-160-0")
@@ -70,8 +72,7 @@ def create_button(window, button_text, posx, posy):
 
 
 def create_input(window, text_label, label_posx, label_posy, input_posx, input_posy):
-    user_label = Label(window, text=text_label, font="none 14 bold", bg='#b40108', fg='#fff', bd=0, width="20",
-                       justify=CENTER).place(x=label_posx, y=label_posy)
+    user_label = Label(window, text=text_label, font="none 14 bold", bg='#b40108', fg='#fff', bd=0, width="20", justify=CENTER).place(x=label_posx, y=label_posy)
     user_input = Entry(window, bg='#b40108', fg='#fff', bd=0, width="35", justify=CENTER)
     font_input = font.Font(family="Segoe UI", size=13, weight='bold')
     user_input['font'] = font_input
@@ -82,13 +83,6 @@ def create_input(window, text_label, label_posx, label_posy, input_posx, input_p
 # event trigger functions
 def save():
     print("sauvegarde")
-
-
-def open_file(window):
-    filename = filedialog.askopenfilename(initialdir="C:/Users/louis/Desktop/dev", title="Selectionnez unlogo",
-                                          filetypes=(("png files", "*.png"), ("all files", "*.*")))
-    my_logo = ImageTk.PhotoImage(Image.open(filename))
-    image_label = Label(window, text=filename).place(x=260, y=180)
 
 
 # all widgets in the migration window
@@ -105,7 +99,13 @@ def open_migration_window():
     username = create_input(mig_wd, 'nom nouvel admin', 30, 50, 300, 50)
     mdp = create_input(mig_wd, 'mdp nouvel admin', 830, 50, 1100, 50)
     import_logo = create_button(mig_wd, 'importer un logo', 35, 100)
-    import_logo["command"] = lambda: open_file(mig_wd)
+    import_logo["command"] = lambda: import_img("logo")
+    import_pilote1 = create_button(mig_wd, 'importer photo pilote 1', 35, 200)
+    import_pilote1["command"] = lambda: import_img("pilote1")
+    import_pilote2 = create_button(mig_wd, 'importer photo pilote 2', 35, 300)
+    import_pilote2["command"] = lambda: import_img("pilote2")
+    import_cgv = create_button(mig_wd, 'importer CGV', 35, 400)
+    import_cgv["command"] = lambda: import_img("cgv")
     global img1
     global img2
     global img3
@@ -208,7 +208,6 @@ def open_migration_window():
         if img_number == 48:
             button_forward = Button(mig_wd, text=">>", state=DISABLED).place(x=340, y=380)
 
-
     def validation(text):
         global slider_index
         my_user_text = text.get()
@@ -220,6 +219,29 @@ def open_migration_window():
         print(slider_index)
 
         text.delete(0, 'end')
+
+    def import_img(dest):
+        filename = filedialog.askopenfilename(initialdir=Path.cwd(), title="Selectionnez un logo", filetypes=(("png files", "*.png"), ("all files", "*.*")))
+        image_to_import = ImageTk.PhotoImage(Image.open(filename))
+        img_path = Path(filename)
+        actual_dir = str(Path.cwd())
+        if dest == "logo":
+            dest_dir = Path("{0}/wp-content/uploads/2018/01".format(actual_dir))
+            shutil.copy(img_path.absolute(), dest_dir)
+            Path.rename(Path("{0}/wp-content/uploads/2018/01/{1}".format(actual_dir, img_path.name)), Path("{0}/wp-content/uploads/2018/01/logo-drone12.png".format(actual_dir)))
+        elif dest == "pilote1":
+            dest_dir = Path("{0}/wp-content/uploads/2019/09".format(actual_dir))
+            shutil.copy(img_path.absolute(), dest_dir)
+            Path.rename(Path("{0}/wp-content/uploads/2019/09/{1}".format(actual_dir, img_path.name)), Path("{0}/wp-content/uploads/2019/09/Team-Adrien-768x768.png".format(actual_dir)))
+        elif dest == "pilote2":
+            dest_dir = Path("{0}/wp-content/uploads/2019/09".format(actual_dir))
+            shutil.copy(img_path.absolute(), dest_dir)
+            Path.rename(Path("{0}/wp-content/uploads/2019/09/{1}".format(actual_dir, img_path.name)), Path("{0}/wp-content/uploads/2019/09/Team-Charles-768x768.png".format(actual_dir)))
+        elif dest == "cgv":
+            dest_dir = Path("{0}/wp-content/uploads/2020/04".format(actual_dir))
+            shutil.copy(img_path.absolute(), dest_dir)
+            Path.rename(Path("{0}/wp-content/uploads/2020/04/{1}".format(actual_dir, img_path.name)), Path("{0}/wp-content/uploads/2020/04/CGV-DRONE12.pdf".format(actual_dir)))
+
 
     def file_operations(var_list):
         titre_min_espace1 = "drone 33"
@@ -323,7 +345,6 @@ def open_migration_window():
 
         roseenjaune1 = "#f92763"
         roseenjaune2 = "#f4a340"
-
 
         adresse1 = "84 Avenue Pasteur,<br \\\\/>33185 le Haillan<br \\\\/>Gironde<br \\\\/>Nouvelle Aquitaine"
 
@@ -445,8 +466,8 @@ def open_migration_window():
             .replace("title_text\\\":\\\"{0}".format(parse_title_text_premier_pilote1), "title_text\\\":\\\"{0}".format(parse_title_text_premier_pilote2)) \
             .replace("title_text\\\":\\\"{0}".format(parse_title_text_second_pilote1), "title_text\\\":\\\"{0}".format(parse_title_text_second_pilote2)) \
             .replace(roseenbleu1, roseenbleu2).replace(roseenjaune1, roseenjaune2) \
-            .replace(parse_adresse1, "{0},<br \\\\/>{1}<br \\\\/>{2}<br \\\\/>{3}".format(parse_rue, parse_code_postal, parse_departement, parse_region))\
-            .replace(bgna1, bgna2).replace(parse_small_adress1, parse_small_adress2).replace(parse_vdr1, parse_vdr2).replace(parse_tpvdr1, parse_tpvdr2) \
+            .replace(parse_adresse1, "{0},<br \\\\/>{1}<br \\\\/>{2}<br \\\\/>{3}".format(parse_rue, parse_code_postal, parse_departement, parse_region)) \
+            .replace(parse_bgna1, parse_bgna2).replace(parse_small_adress1, parse_small_adress2).replace(parse_vdr1, parse_vdr2).replace(parse_tpvdr1, parse_tpvdr2) \
             .replace(parse_ctpvdr1, parse_ctpvdr2).replace(parse_tiret_ville1, parse_tiret_ville2) \
             .replace(parse_adresse_contactez_nous1, parse_adresse_contactez_nous2) \
             .replace(parse_reportage_video1, parse_reportage_video2).replace(parse_ville_et_region1, parse_ville_et_region2) \
