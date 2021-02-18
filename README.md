@@ -21,7 +21,7 @@ La principale chose que vous allez voir son des screens avec des encadrés. Ces 
 <b> Il y a cependant une execption </b>
 les images suivante sont des couleurs à changer :<br>
 ![hoover de bouton](https://cdn.discordapp.com/attachments/510525802371219456/811700097720385536/15.png)
-##### Il faut donc mettre la code hexadécimal d'une couleur
+#### Il faut donc mettre la code hexadécimal d'une couleur
 par exemple, la couleur rouge du site drone33 est #C80108. Cependant, il est important de ne pas mettre le '#' avant, et de simplement mettre le code héxadécimal, à savoir : C80108.<br><br><br>
 
 
@@ -33,10 +33,10 @@ par exemple, la couleur rouge du site drone33 est #C80108. Cependant, il est imp
 
 ## Changement à faire à la main
 
-##### Il y a, suite a quelques modifications, des changements à faire à la main afin de s'assurer du bon changement de toute les informations du nouveau site
+#### Il y a, suite a quelques modifications, des changements à faire à la main afin de s'assurer du bon changement de toute les informations du nouveau site
 * <b>Si ce n'est pas déjà fait, se connecter avec les nouveau identifiant d'administration du site</b>
 * <b>Rafraichir toute les pages du site avec elementor</b><br>
 Pour ce faire, se connecter avec les indentifiants administrateur sur le wordpress, et faire "modifier avec elementor", faire un changement type (effacer une lettre et la remettre) pour avoir le bonton mettre à jour dispoinible en bas à gauche et cliquer dessus.
 * <b>Rafraichir le site une fois avec l'onglet "Personaliser"</b><br>
 Faire un changement type (desactiver et ré activer une feature) pour avoir le bouton "publier" ou "mettre à jour" disponible, et appuyer dessus.
-##### ces changements permette majoritairement de faire apparaitre toute les couleurs mise à jour.
+#### ces changements permette majoritairement de faire apparaitre toute les couleurs mise à jour.
