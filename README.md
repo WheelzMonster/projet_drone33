@@ -36,7 +36,7 @@ par exemple, la couleur rouge du site drone33 est #C80108. Cependant, il est imp
 #### Il y a, suite a quelques modifications, des changements à faire à la main afin de s'assurer du bon changement de toute les informations du nouveau site
 * <b>Si ce n'est pas déjà fait, se connecter avec les nouveau identifiant d'administration du site</b>
 * <b>Rafraichir toute les pages du site avec elementor</b><br>
-Pour ce faire, se connecter avec les indentifiants administrateur sur le wordpress, et faire "modifier avec elementor", faire un changement type (effacer une lettre et la remettre) pour avoir le bonton mettre à jour dispoinible en bas à gauche et cliquer dessus.
+Pour ce faire, se connecter avec les indentifiants administrateur sur le wordpress, et faire "modifier avec elementor", faire un changement type (effacer une lettre et la remettre) pour avoir le bouton mettre à jour dispoinible en bas à gauche et cliquer dessus.
 * <b>Rafraichir le site une fois avec l'onglet "Personaliser"</b><br>
 Faire un changement type (desactiver et ré activer une feature) pour avoir le bouton "publier" ou "mettre à jour" disponible, et appuyer dessus.
 #### ces changements permette majoritairement de faire apparaitre toute les couleurs mise à jour.
