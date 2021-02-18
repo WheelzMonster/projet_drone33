@@ -228,7 +228,7 @@ def open_migration_window():
         if dest == "logo":
             dest_dir = Path("{0}/wp-content/uploads/2018/01".format(actual_dir))
             shutil.copy(img_path.absolute(), dest_dir)
-            Path.rename(Path("{0}/wp-content/uploads/2018/01/{1}".format(actual_dir, img_path.name)), Path("{0}/wp-content/uploads/2018/01/logo-drone12.png".format(actual_dir)))
+            Path.rename(Path("{0}/wp-content/uploads/2018/01/{1}".format(actual_dir, img_path.name)), Path("{0}/wp-content/uploads/2018/01/logo-{1}.png".format(actual_dir, variable_list[4])))
         elif dest == "pilote1":
             dest_dir = Path("{0}/wp-content/uploads/2019/09".format(actual_dir))
             shutil.copy(img_path.absolute(), dest_dir)
@@ -240,7 +240,7 @@ def open_migration_window():
         elif dest == "cgv":
             dest_dir = Path("{0}/wp-content/uploads/2020/04".format(actual_dir))
             shutil.copy(img_path.absolute(), dest_dir)
-            Path.rename(Path("{0}/wp-content/uploads/2020/04/{1}".format(actual_dir, img_path.name)), Path("{0}/wp-content/uploads/2020/04/CGV-DRONE12.pdf".format(actual_dir)))
+            Path.rename(Path("{0}/wp-content/uploads/2020/04/{1}".format(actual_dir, img_path.name)), Path("{0}/wp-content/uploads/2020/04/CGV-{1}.pdf".format(actual_dir, variable_list[3])))
 
 
     def file_operations(var_list):
