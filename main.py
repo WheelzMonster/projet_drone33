@@ -245,143 +245,143 @@ def open_migration_window():
 
     def file_operations(var_list):
         titre_min_espace1 = "drone 33"
-        titre_min_espace2 = "drone 12"
+        titre_min_espace2 = var_list[0]
 
         titre_maj_espace1 = "Drone 33"
-        titre_maj_espace2 = "Drone 12"
+        titre_maj_espace2 = var_list[1]
 
         titre_fullmaj_espace1 = "DRONE 33"
-        titre_fullmaj_espace2 = "DRONE 12"
+        titre_fullmaj_espace2 = var_list[2]
 
         titre_fullmaj1 = "DRONE33"
-        titre_fullmaj2 = "DRONE12"
+        titre_fullmaj2 = var_list[3]
 
         titre_min1 = "drone33"
-        titre_min2 = "drone12"
+        titre_min2 = var_list[4]
 
         titre_maj1 = "Drone33"
-        titre_maj2 = "Drone12"
+        titre_maj2 = var_list[5]
 
         rougeenbleu1 = "#c80108"
-        rougeenbleu2 = "#152960"
+        rougeenbleu2 = var_list[6]
 
         ED1 = "ED5378"
-        ED2 = "ED12797 (FRA3ikf2k5ajes6w)"
+        ED2 = var_list[7]
 
         numero_sans_points1 = "06 66 52 33 64"
-        numero_sans_points2 = "06 33 72 16 52"
+        numero_sans_points2 = var_list[8]
 
         numero_avec_points1 = "06.66.52.33.64"
-        numero_avec_points2 = "06.33.72.16.52"
+        numero_avec_points2 = var_list[9]
 
         youtube1 = "https://www.youtube.com/c/{0}".format(titre_min2)
-        youtube2 = "https://www.youtube.com/channel/UCm60SWK3FaskZ4c2MkwzuKg"
+        youtube2 = var_list[10]
 
         facebook1 = "www.facebook.com/{0}fr".format(titre_min2)
-        facebook2 = "www.facebook.com/contactdrone12"
+        facebook2 = var_list[11]
 
         twitter1 = "twitter.com/adriensifre"
-        twitter2 = "twitter.com/mescouillesenski"
+        twitter2 = var_list[12]
 
         insta1 = "instagram.com/fotografik33"
-        insta2 = "instagram.com/aveyron_drone"
+        insta2 = var_list[13]
 
         linkedin1 = "linkedin.com/company/15870000"
-        linkedin2 = "linkedin.com/company/aveyronairacademy"
+        linkedin2 = var_list[14]
 
         contact1 = "contact@{0}.fr".format(titre_min2)
-        contact2 = "contact@drone12.fr"
+        contact2 = var_list[15]
 
         hundred_metters1 = "150 m"
-        hundred_metters2 = "120 m"
+        hundred_metters2 = var_list[16]
 
         thousand_metters1 = "1000 m"
-        thousand_metters2 = "2000 m"
+        thousand_metters2 = var_list[17]
 
         small_scrolling_nbr1 = "150"
-        small_scrolling_nbr2 = "120"
+        small_scrolling_nbr2 = var_list[18]
 
         big_scrolling_nbr1 = "1000"
-        big_scrolling_nbr2 = "2000"
+        big_scrolling_nbr2 = var_list[19]
 
         first_pilote_name_caps1 = "Adrien SIFRE"
-        first_pilote_name_caps2 = "Yuri VERHEYDEN"
+        first_pilote_name_caps2 = var_list[20]
 
         first_pilote_name1 = "Adrien Sifre"
-        first_pilote_name2 = "Yuri Verheyden"
+        first_pilote_name2 = var_list[21]
 
         tribunaux1 = "aux tribunaux compétents de Bordeaux"
-        tribunaux2 = "aux tribunaux compétents de Rodez"
+        tribunaux2 = var_list[22]
 
         siren1 = " SIREN 820 758 019 00013"
-        siren2 = "SIREN XXX XXX XXX XXXXX"
+        siren2 = var_list[23]
 
         second_pilote_name1 = "Charles Debitus"
-        second_pilote_name2 = "Paul Henri"
+        second_pilote_name2 = var_list[24]
 
         second_pilote_name_caps1 = "Charles DEBITUS"
-        second_pilote_name_caps2 = "Paul Henri"
+        second_pilote_name_caps2 = var_list[25]
 
         sieca1 = "SIECA -"
-        sieca2 = "XXXXX -"
+        sieca2 = var_list[26]
 
         contrat1 = "de contrat : 6539"
-        contrat2 = "de contrat : XXXX"
+        contrat2 = var_list[27]
 
         premier_pilote1 = "Adrien est le fondateur de {0} mais également de fotografik33 et visite-virtuelle33. Il fait également partie du collectif Creative4. Avec plus de 100 heures de vol sur des drones DJI, il est spécialisé dans la photographie et la vidéo pour les domaines industriel et commercial (3D, Cartographie, Mesures, Immobilier, Marketing ..).".format(titre_min2)
-        premier_pilote2 = "Yuri est le fondateur de Drone 12 et de l'Aveyron Air Academy Rodez. Passionné d'aviation et d'aéronautique depuis son plus jeune âge, il est pilote d'avion et d'hélicoptère classe 6. Il vous enseignera comment devenir un télé-pilote professionnel mais aussi l'ensemble des règles de l'air communes à tous les aéronerfs. Chef d'entreprise depuis plus de 18 ans il saura aussi être de bon conseil pour ceux qui souhaitent se lancer en tant qu'entrepreneur."
+        premier_pilote2 = var_list[28]
 
         second_pilote1 = "Riche d'une expérience de plus de 15 ans dans différents postes de l'audiovisuel (chef de plateau, assistant mise en scène ou encore cadreur et compositeur), Charles est un télé-pilote spécialisé sur notre offre TV & Cinéma (Broadcasting) mais également sur notre offre Agriculture."
-        second_pilote2 = "Paul-Henri est un photographe bien connu en Occitanie. Passionné de photo mais aussi d'aéronautique il s'est spécialisé dans la prise de vue en studio mais aussi dans la photographie aérienne auprès de grands constructeurs européens. Télé-pilote pro il s'amuse à filmer ses exploits en planche à voile régulièrement."
+        second_pilote2 = var_list[29]
 
         title_text_premier_pilote1 = "Adrien"
-        title_text_premier_pilote2 = "Yuri"
+        title_text_premier_pilote2 = var_list[30]
 
         title_text_second_pilote1 = "Charles"
-        title_text_second_pilote2 = "Paul Henri"
+        title_text_second_pilote2 = var_list[31]
 
         roseenbleu1 = "#c1230b"
-        roseenbleu2 = "#152960"
+        roseenbleu2 = var_list[32]
 
         roseenjaune1 = "#f92763"
-        roseenjaune2 = "#f4a340"
+        roseenjaune2 = var_list[33]
 
         adresse1 = "84 Avenue Pasteur,<br \\\\/>33185 le Haillan<br \\\\/>Gironde<br \\\\/>Nouvelle Aquitaine"
 
-        rue = "5 cité de la boule d'or"
-        code_postale = "12000 Rodez"
-        departement = "Aveyron"
-        region = "Occitanie"
+        rue = var_list[34]
+        code_postale = var_list[35]
+        departement = var_list[36]
+        region = var_list[37]
 
         bgna1 = "Bordeaux - Gironde - Nouvelle Aquitaine"
-        bgna2 = "Rodez - Aveyron - Occitanie"
+        bgna2 = var_list[38]
 
         small_adress1 = "33185 LE HAILLAN"
-        small_adress2 = "12000 RODEZ"
+        small_adress2 = var_list[39]
 
         vdr1 = "Bordeaux, en gironde et en Nouvelle Aquitaine"
-        vdr2 = "Rodez, en Aveyron et en Occitanie"
+        vdr2 = var_list[40]
 
         tpvdr1 = "télé-pilotes de drone à bordeaux, gironde et en nouvelle aquitaine"
-        tpvdr2 = "télé-pilotes de drone à rodez, aveyron et en occitanie"
+        tpvdr2 = var_list[41]
 
         ctpvdr1 = "Télé-Pilotes de drone à Bordeaux, Gironde et Nouvelle Aquitaine"
-        ctpvdr2 = "Télé-Pilotes de drone à Rodez, Aveyron et Occitanie"
+        ctpvdr2 = var_list[42]
 
         tiret_ville1 = "- Bordeaux"
-        tiret_ville2 = "- Rodez"
+        tiret_ville2 = var_list[43]
 
         adresse_contactez_nous1 = "{0} - GIRONDE".format(small_adress2)
-        adresse_contactez_nous2 = "12000 RODEZ - AVEYRON"
+        adresse_contactez_nous2 = var_list[44]
 
         reportage_video1 = "Des reportages vidéos complets à Bordeaux et en Gironde"
-        reportage_video2 = "Des reportages vidéos complets à Rodez et en Aveyron"
+        reportage_video2 = var_list[45]
 
         ville_et_region1 = "Bordeaux et sa région"
-        ville_et_region2 = "Rodez et sa région"
+        ville_et_region2 = var_list[46]
 
         ville_entre_par1 = "(Gironde, Nouvelle-Aquitaine)"
-        ville_entre_par2 = "(Aveyron, Occitanie)"
+        ville_entre_par2 = var_list[47]
 
         parse_tribunaux1 = string_parser(tribunaux1)
         parse_tribunaux2 = string_parser(tribunaux2)
