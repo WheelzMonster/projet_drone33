@@ -513,6 +513,23 @@ def open_migration_window():
         # close the file
         fin.close()
 
+        # read CSS file
+        actual_dir = str(Path.cwd())
+        css_path = Path("{0}/wp-content/uploads/apollo13_framework_files/css/user.css".format(actual_dir))
+        fin = open(css_path, "r", encoding='utf-8')
+        # read file contents to string
+        data = fin.read()
+        # replace all occurrences of the required string
+        data = data.replace(rougeenbleu1, rougeenbleu2)
+        # close the input file
+        fin.close()
+        # open the input file in write mode
+        fin = open(css_path, "w", encoding='utf-8')
+        # overrite the input file with the resulting data
+        fin.write(data)
+        # close the file
+        fin.close()
+
     global button_backward
     global button_forward
     button_backward = Button(mig_wd, text="<<", state=DISABLED).place(x=340, y=310)
