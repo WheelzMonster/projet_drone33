@@ -4,6 +4,7 @@ import tkinter.font as font
 from tkinter import filedialog
 from pathlib import Path
 import shutil
+from ftplib import FTP
 
 root = Tk()
 root.geometry("1200x800-160-0")
@@ -83,6 +84,37 @@ def create_input(window, text_label, label_posx, label_posy, input_posx, input_p
 # event trigger functions
 def save():
     print("sauvegarde")
+    open_ftp_window()
+
+
+def open_ftp_window():
+    ftp_wd = Toplevel()
+    ftp_wd.geometry("800x400-400-200")
+    ftp_wd.iconbitmap("img/drone33.ico")
+    ftp_wd.title("exportation du site")
+    ftp_wd.resizable(False, False)
+    ftp_wd.config(background='#000')
+    host_input = create_input(ftp_wd, "nom d'hôte", 50, 50, 325, 50)
+    user_input = create_input(ftp_wd, "nom d'utilisateur", 50, 100, 325, 100)
+    user_password = create_input(ftp_wd, "mot de passe", 50, 150, 325, 150)
+    site_name = create_input(ftp_wd, "nom du site", 50, 200, 325, 200)
+
+    host = "depot-drone33.go.yj.fr"
+    username = "gverepzz"
+    password = "CGRj2Mfyr1HdQx"
+
+    def retrieve_file():
+        with FTP(host) as ftp:
+            ftp.login(user=username, passwd=password)
+            print(ftp.getwelcome())
+
+            with open('database.txt', 'wb') as f:
+                ftp.retrbinary("RETR " + "hello.txt", f.write, 1024)
+
+            ftp.quit()
+
+    validation_button = create_button(ftp_wd, "Valider", 325, 275)
+    validation_button['command'] = retrieve_file
 
 
 # all widgets in the migration window
