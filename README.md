@@ -28,7 +28,7 @@ La principale chose que vous allez voir son des screens avec des encadrés <b>JA
 #### Il faut donc entrer ici le nouveau nom de votre site sous le meme format que celui qui apparait.
 Ici par exemple il est affiché "drone 33" sur la photo, il faut donc que vous remplaciez par "drone 12" par exemple, et non "drone12", "Drone12", "Drone 12", "DRONE12". Tous ces types de changements seront à faire par la suite sur d'autres photos où vous verrez toutes ces différentes syntaxes à modifier et à <b>conserver</b>.<br><br><br><br>
 
-<b> Il y a cependant quelques exceptions </b>
+## Il y a cependant quelques exceptions
 les images suivante sont des couleurs à changer :<br>
 
 ![hoover de bouton](https://cdn.discordapp.com/attachments/510525802371219456/811700097720385536/15.png)
