@@ -127,7 +127,7 @@ def open_migration_window():
     mig_wd.resizable(False, False)
     mig_wd.config(background='#000')
     nom = create_input(mig_wd, 'nom du site', 30, 20, 300, 20)
-    url = create_input(mig_wd, 'URL', 830, 20, 1100, 20)
+    email = create_input(mig_wd, 'email nouvel admin', 830, 20, 1100, 20)
     username = create_input(mig_wd, 'nom nouvel admin', 30, 50, 300, 50)
     mdp = create_input(mig_wd, 'mdp nouvel admin', 830, 50, 1100, 50)
     import_logo = create_button(mig_wd, 'importer un logo', 35, 100)
@@ -235,7 +235,6 @@ def open_migration_window():
         button_forward = Button(mig_wd, text=">>", command=lambda: forward(img_number + 1, mig_wd)).place(x=340, y=380)
         button_backward = Button(mig_wd, text="<<", command=lambda: backward(img_number - 1, mig_wd)).place(x=340, y=310)
         slider_label.place(x=390, y=90)
-        print("forward ", slider_index)
 
         if img_number == 48:
             button_forward = Button(mig_wd, text=">>", state=DISABLED).place(x=340, y=380)
@@ -247,8 +246,6 @@ def open_migration_window():
             variable_list.append(my_user_text)
         else:
             variable_list[slider_index - 1] = my_user_text
-        print(variable_list)
-        print(slider_index)
 
         text.delete(0, 'end')
 
@@ -275,7 +272,11 @@ def open_migration_window():
             Path.rename(Path("{0}/wp-content/uploads/2020/04/{1}".format(actual_dir, img_path.name)), Path("{0}/wp-content/uploads/2020/04/CGV-{1}.pdf".format(actual_dir, variable_list[3])))
 
 
-    def file_operations(var_list):
+    def file_operations(var_list, name, pw, email):
+        admin_name = name.get()
+        admin_pw = pw.get()
+        admin_email = email.get()
+
         titre_min_espace1 = "drone 33"
         titre_min_espace2 = var_list[0]
 
@@ -530,6 +531,19 @@ def open_migration_window():
         # close the file
         fin.close()
 
+        #add the sql admmin user and password at the end of the file
+
+        with open('test.sql', encoding='utf-8') as file:
+            lines = file.readlines()
+            lines.insert(59845, 'TRUNCATE mod238_users;\n')
+            lines.insert(59846, 'TRUNCATE mod238_usermeta;\n')
+            lines.insert(59847, "INSERT INTO mod238_users (ID, user_login, user_pass, user_nicename, user_email, user_url, user_registered, user_activation_key, user_status, display_name) VALUES ('1', '{0}', MD5('{1}'), '{0}', '{2}', '', '2021-01-02 00:00:00', '', '0', '{0}');\n".format(name, pw, email))
+            lines.insert(59848, '''INSERT INTO mod238_usermeta (umeta_id, user_id, meta_key, meta_value) VALUES (NULL, '1', 'mod238_capabilities', 'a:1:{s:13:"administrator";s:1:"1";}');\n''')
+            lines.insert(59849, '''INSERT INTO mod238_usermeta (umeta_id, user_id, meta_key, meta_value) VALUES (NULL, '1', 'mod238_user_level', '10');\n''')
+            with open('test.sql', 'w', encoding='utf-8') as _file:
+                for line in lines:
+                    _file.write(line)
+
     global button_backward
     global button_forward
     button_backward = Button(mig_wd, text="<<", state=DISABLED).place(x=340, y=310)
@@ -539,7 +553,7 @@ def open_migration_window():
     validate_btn = create_button(mig_wd, 'valider', 1150, 575)
     validate_btn['command'] = lambda: validation(user_text)
     end_button = create_button(mig_wd, 'terminer', 1300, 575)
-    end_button['command'] = lambda: file_operations(variable_list)
+    end_button['command'] = lambda: file_operations(variable_list, username, mdp, email)
 
 
 # all widgets in the main window
