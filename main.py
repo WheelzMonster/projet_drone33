@@ -5,6 +5,7 @@ from tkinter import filedialog
 from pathlib import Path
 import shutil
 from ftplib import FTP
+import os
 
 root = Tk()
 root.geometry("1200x800-160-0")
@@ -73,7 +74,8 @@ def create_button(window, button_text, posx, posy):
 
 
 def create_input(window, text_label, label_posx, label_posy, input_posx, input_posy):
-    user_label = Label(window, text=text_label, font="none 14 bold", bg='#b40108', fg='#fff', bd=0, width="20", justify=CENTER).place(x=label_posx, y=label_posy)
+    user_label = Label(window, text=text_label, font="none 14 bold", bg='#b40108', fg='#fff', bd=0, width="20",
+                       justify=CENTER).place(x=label_posx, y=label_posy)
     user_input = Entry(window, bg='#b40108', fg='#fff', bd=0, width="35", justify=CENTER)
     font_input = font.Font(family="Segoe UI", size=13, weight='bold')
     user_input['font'] = font_input
@@ -189,14 +191,17 @@ def open_migration_window():
 
     variable_list = []
 
-    img_list = [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img12, img13, img14, img15, img16, img17, img18, img19, img20, img21, img22, img23, img24, img25, img26, img27, img28, img29, img30, img31, img32, img33, img34, img35, img36, img37, img38, img39, img40, img41, img42, img43, img44, img45, img46, img47, img48]
+    img_list = [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img12, img13, img14, img15, img16,
+                img17, img18, img19, img20, img21, img22, img23, img24, img25, img26, img27, img28, img29, img30, img31,
+                img32, img33, img34, img35, img36, img37, img38, img39, img40, img41, img42, img43, img44, img45, img46,
+                img47, img48]
 
     global slider_label
     slider_label = Label(mig_wd, image=img1)
     slider_label.place(x=390, y=90)
 
-    def string_parser(str):
-        return str.replace('â', '\\\\u00e2').replace('à', '\\\\u00e0').replace('ä', '\\\\u00e4') \
+    def string_parser(textstr):
+        return textstr.replace('â', '\\\\u00e2').replace('à', '\\\\u00e0').replace('ä', '\\\\u00e4') \
             .replace('ç', '\\\\u00e7').replace('é', '\\\\u00e9').replace('è', '\\\\u00e8') \
             .replace('ê', '\\\\u00ea').replace('ë', '\\\\u00eb').replace('î', '\\\\u00ee').replace('ï', '\\\\u00ef') \
             .replace('ô', '\\\\u00f4').replace('ö', '\\\\u00f6').replace('ù', '\\\\u00f9') \
@@ -215,7 +220,8 @@ def open_migration_window():
         slider_label.place_forget()
         slider_label = Label(wd, image=img_list[img_number - 1])
         button_forward = Button(mig_wd, text=">>", command=lambda: forward(img_number + 1, mig_wd)).place(x=340, y=380)
-        button_backward = Button(mig_wd, text="<<", command=lambda: backward(img_number - 1, mig_wd)).place(x=340, y=310)
+        button_backward = Button(mig_wd, text="<<", command=lambda: backward(img_number - 1, mig_wd)).place(x=340,
+                                                                                                            y=310)
         slider_label.place(x=390, y=90)
         print("backward ", slider_index)
 
@@ -233,7 +239,8 @@ def open_migration_window():
         slider_label.place_forget()
         slider_label = Label(wd, image=img_list[img_number - 1])
         button_forward = Button(mig_wd, text=">>", command=lambda: forward(img_number + 1, mig_wd)).place(x=340, y=380)
-        button_backward = Button(mig_wd, text="<<", command=lambda: backward(img_number - 1, mig_wd)).place(x=340, y=310)
+        button_backward = Button(mig_wd, text="<<", command=lambda: backward(img_number - 1, mig_wd)).place(x=340,
+                                                                                                            y=310)
         slider_label.place(x=390, y=90)
 
         if img_number == 48:
@@ -250,32 +257,51 @@ def open_migration_window():
         text.delete(0, 'end')
 
     def import_img(dest):
-        filename = filedialog.askopenfilename(initialdir=Path.cwd(), title="Selectionnez un logo", filetypes=(("png files", "*.png"), ("all files", "*.*")))
+        filename = filedialog.askopenfilename(initialdir=Path.cwd(), title="Selectionnez un logo",
+                                              filetypes=(("png files", "*.png"), ("all files", "*.*")))
         image_to_import = ImageTk.PhotoImage(Image.open(filename))
         img_path = Path(filename)
         actual_dir = str(Path.cwd())
         if dest == "logo":
-            dest_dir = Path("{0}/wp-content/uploads/2018/01".format(actual_dir))
+            dest_dir = Path("{0}/site/wp-content/uploads/2018/01".format(actual_dir))
             shutil.copy(img_path.absolute(), dest_dir)
-            Path.rename(Path("{0}/wp-content/uploads/2018/01/{1}".format(actual_dir, img_path.name)), Path("{0}/wp-content/uploads/2018/01/logo-{1}.png".format(actual_dir, variable_list[4])))
+            Path.rename(Path("{0}/site/wp-content/uploads/2018/01/{1}".format(actual_dir, img_path.name)),
+                        Path("{0}/site/wp-content/uploads/2018/01/logo-{1}.png".format(actual_dir, variable_list[4])))
         elif dest == "pilote1":
-            dest_dir = Path("{0}/wp-content/uploads/2019/09".format(actual_dir))
+            dest_dir = Path("{0}/site/wp-content/uploads/2019/09".format(actual_dir))
             shutil.copy(img_path.absolute(), dest_dir)
-            Path.rename(Path("{0}/wp-content/uploads/2019/09/{1}".format(actual_dir, img_path.name)), Path("{0}/wp-content/uploads/2019/09/Team-Adrien-768x768.png".format(actual_dir)))
+            Path.rename(Path("{0}/site/wp-content/uploads/2019/09/{1}".format(actual_dir, img_path.name)),
+                        Path("{0}/site/wp-content/uploads/2019/09/Team-Adrien-768x768.png".format(actual_dir)))
         elif dest == "pilote2":
-            dest_dir = Path("{0}/wp-content/uploads/2019/09".format(actual_dir))
+            dest_dir = Path("{0}/site/wp-content/uploads/2019/09".format(actual_dir))
             shutil.copy(img_path.absolute(), dest_dir)
-            Path.rename(Path("{0}/wp-content/uploads/2019/09/{1}".format(actual_dir, img_path.name)), Path("{0}/wp-content/uploads/2019/09/Team-Charles-768x768.png".format(actual_dir)))
+            Path.rename(Path("{0}/site/wp-content/uploads/2019/09/{1}".format(actual_dir, img_path.name)),
+                        Path("{0}/site/wp-content/uploads/2019/09/Team-Charles-768x768.png".format(actual_dir)))
         elif dest == "cgv":
-            dest_dir = Path("{0}/wp-content/uploads/2020/04".format(actual_dir))
+            dest_dir = Path("{0}/site/wp-content/uploads/2020/04".format(actual_dir))
             shutil.copy(img_path.absolute(), dest_dir)
-            Path.rename(Path("{0}/wp-content/uploads/2020/04/{1}".format(actual_dir, img_path.name)), Path("{0}/wp-content/uploads/2020/04/CGV-{1}.pdf".format(actual_dir, variable_list[3])))
+            Path.rename(Path("{0}/site/wp-content/uploads/2020/04/{1}".format(actual_dir, img_path.name)),
+                        Path("{0}/site/wp-content/uploads/2020/04/CGV-{1}.pdf".format(actual_dir, variable_list[3])))
 
+    def unzip():
+        for dir in os.listdir('.'):
+            if (dir.endswith('.zip')):
+                shutil.unpack_archive(dir, 'site', 'zip')
+
+    def zip():
+        return
 
     def file_operations(var_list, name, pw, email):
+        unzip()
+        sql_file = ''
         admin_name = name.get()
         admin_pw = pw.get()
         admin_email = email.get()
+        actual_dir = str(Path.cwd())
+
+        for dir in os.listdir('{0}/site/dup-installer'.format(actual_dir)):
+            if dir.endswith('.sql'):
+                sql_file = dir
 
         titre_min_espace1 = "drone 33"
         titre_min_espace2 = var_list[0]
@@ -472,8 +498,10 @@ def open_migration_window():
         parse_ville_entre_par1 = string_parser(ville_entre_par1)
         parse_ville_entre_par2 = string_parser(ville_entre_par2)
 
+        sql_path = Path("{0}/site/dup-installer/{1}".format(actual_dir, sql_file))
+
         # read input file
-        fin = open("test.sql", "r", encoding='utf-8')
+        fin = open(sql_path, "r", encoding='utf-8')
         # read file contents to string
         data = fin.read()
         # replace all occurrences of the required string
@@ -508,15 +536,15 @@ def open_migration_window():
         # close the input file
         fin.close()
         # open the input file in write mode
-        fin = open("test.sql", "w", encoding='utf-8')
+        fin = open(sql_path, "w", encoding='utf-8')
         # overrite the input file with the resulting data
         fin.write(data)
         # close the file
         fin.close()
 
         # read CSS file
-        actual_dir = str(Path.cwd())
-        css_path = Path("{0}/wp-content/uploads/apollo13_framework_files/css/user.css".format(actual_dir))
+
+        css_path = Path("{0}/site/wp-content/uploads/apollo13_framework_files/css/user.css".format(actual_dir))
         fin = open(css_path, "r", encoding='utf-8')
         # read file contents to string
         data = fin.read()
@@ -531,18 +559,23 @@ def open_migration_window():
         # close the file
         fin.close()
 
-        #add the sql admmin user and password at the end of the file
+        # add the sql admmin user and password at the end of the file
 
-        with open('test.sql', encoding='utf-8') as file:
+        with open(sql_path, encoding='utf-8') as file:
             lines = file.readlines()
             lines.insert(59845, 'TRUNCATE mod238_users;\n')
             lines.insert(59846, 'TRUNCATE mod238_usermeta;\n')
-            lines.insert(59847, "INSERT INTO mod238_users (ID, user_login, user_pass, user_nicename, user_email, user_url, user_registered, user_activation_key, user_status, display_name) VALUES ('1', '{0}', MD5('{1}'), '{0}', '{2}', '', '2021-01-02 00:00:00', '', '0', '{0}');\n".format(name, pw, email))
-            lines.insert(59848, '''INSERT INTO mod238_usermeta (umeta_id, user_id, meta_key, meta_value) VALUES (NULL, '1', 'mod238_capabilities', 'a:1:{s:13:"administrator";s:1:"1";}');\n''')
-            lines.insert(59849, '''INSERT INTO mod238_usermeta (umeta_id, user_id, meta_key, meta_value) VALUES (NULL, '1', 'mod238_user_level', '10');\n''')
-            with open('test.sql', 'w', encoding='utf-8') as _file:
+            lines.insert(59847,
+                         "INSERT INTO mod238_users (ID, user_login, user_pass, user_nicename, user_email, user_url, user_registered, user_activation_key, user_status, display_name) VALUES ('1', '{0}', MD5('{1}'), '{0}', '{2}', '', '2021-01-02 00:00:00', '', '0', '{0}');\n".format(
+                             name, pw, email))
+            lines.insert(59848,
+                         '''INSERT INTO mod238_usermeta (umeta_id, user_id, meta_key, meta_value) VALUES (NULL, '1', 'mod238_capabilities', 'a:1:{s:13:"administrator";s:1:"1";}');\n''')
+            lines.insert(59849,
+                         '''INSERT INTO mod238_usermeta (umeta_id, user_id, meta_key, meta_value) VALUES (NULL, '1', 'mod238_user_level', '10');\n''')
+            with open(sql_path, 'w', encoding='utf-8') as _file:
                 for line in lines:
                     _file.write(line)
+        zip()
 
     global button_backward
     global button_forward
