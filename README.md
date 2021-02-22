@@ -32,14 +32,19 @@ Cela va donc vous ouvrir une nouvelle fenêtre et vous offrir un panel de possib
 
 ### Faire les changements de texte sur votre nouveau site à migrer
 La principale chose que vous allez voir son des screens avec des encadrés <b>JAUNE</b>. Ces encradrés représentent l'exactitude des changements qui vont être appliqués sur le site. Donc lorsqu'un texte est encadré d'un rectangle jaune, il faut le changer par exactement ce que vous souhaiter mettre à la place. Il est donc important de garder les majuscules, ponctuations, accents, parenthèses qui sont <b>BIEN VISIBLE DANS LE CARRÉ JAUNE</b>. Dans le cas contraire, il manquera surement ces derniers sur le site.
+<br>
 Pour faire un changement proprement, il faut donc :
 * 1- Aller sur l'image correspondante au changement
 * 2- Écrire le texte à modifier dans la zone de texte juste en dessous du slider d'image
 * 3- Appuyer sur le bouton "valider"
 * 4- Passer à l'image suivante
+<br>
 
-Si vous vous êtes trompé, ou vous voulez tout simplement modifier le changement que vous aviez déjà fait, il vous suffit de revenir sur l'image du slider en question et réécrire le changement à faire dans la zone de texte, et re valider. Le nouveau changement sera pris en compte.
+![menu explication](https://cdn.discordapp.com/attachments/510525802371219456/813426688360579113/menu.png)
 
+<br>
+Si vous vous êtes trompé, ou vous voulez tout simplement modifier le changement que vous aviez déjà fait, il vous suffit de revenir sur l'image du slider en question et réécrire le changement à faire dans la zone de texte, et re valider. Le nouveau changement sera pris en compte.<br>
+Veillez à bien remplir chaque zone de texte et à bien appuyer sur valider pour chaque image du slider pour éviter toutes erreurs d'indentation.
 
 <br><br>
 
@@ -95,6 +100,12 @@ Ces 4 boutons vont chacun vous ouvrir votre exploratreur de fichier et vous dema
 
 <b>Je tiens à préciser que cette étape doit se faire APRÈS avoir fait les modifications de texte avec le slider d'image.</b>
 
+## Une fois tous ces changement fait, merci d'appuyer sur le bouton "terminer" afin d'appliquer tous les changements au dossier du site.
+Une fois appuyé sur le bouton, vous verrez le bouton devenr blanc et le rester tant que les modifications n'ont pas fini de s'appliquer sur le dossier.
+
+![bouton terminer](https://cdn.discordapp.com/attachments/510525802371219456/813429672087781376/finish_button.png)
+
+<br><br>
 
 # Changement à faire à la main
 
