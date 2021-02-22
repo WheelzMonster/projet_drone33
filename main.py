@@ -289,6 +289,7 @@ def open_migration_window():
         shutil.rmtree('site', ignore_errors=True)
 
     def file_operations(var_list, name, pw, email):
+        Label(mig_wd, text="Les changements sont en cours, veuillez patienter...", font="none 14 bold", bg='#000000', fg='#fff', bd=0, justify=CENTER).place(x=50, y=700)
         unzip()
         sql_file = ''
         admin_name = name.get()
@@ -570,6 +571,8 @@ def open_migration_window():
                     _file.write(line)
         zip()
 
+        Label(mig_wd, text="Changements terminés, vous pouvez fermer l'application en toute sécurité !", font="none 14 bold", bg='#000000', fg='#fff', bd=0, justify=CENTER).place(x=50, y=700)
+
     global button_backward
     global button_forward
     button_backward = Button(mig_wd, text="<<", state=DISABLED).place(x=340, y=310)
@@ -591,6 +594,7 @@ sauvegarde = create_button(root, "SAUVEGARDER", 165, 350)
 migration = create_button(root, " MIGRATION ", 835, 350)
 sauvegarde["command"] = save
 migration["command"] = open_migration_window
+
 
 # program loop
 root.mainloop()
