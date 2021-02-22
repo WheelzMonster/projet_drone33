@@ -278,7 +278,16 @@ def open_migration_window():
                 shutil.unpack_archive(dir, 'site', 'zip')
 
     def zip():
-        return
+        new_name = ""
+
+        for dir in os.listdir('.'):
+            if dir.endswith('.zip'):
+                org_name = dir
+
+                for i in range(len(org_name) - 4):
+                    new_name = new_name + org_name[i]
+        shutil.make_archive(new_name, 'zip', 'site')
+        shutil.rmtree('site', ignore_errors=True)
 
     def file_operations(var_list, name, pw, email):
         unzip()
