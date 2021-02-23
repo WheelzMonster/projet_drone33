@@ -8,15 +8,28 @@ This is our internship project : drone 33. This shall be edited into further det
 <br><br>
 ## Mise en place de l'application
 
-### Bibliothèque à installer si vous n'utilisez pas l'exe:
+### Bibliothèque à installer :
 *il faut bien évidement avoir python 3 et pip d'installé au préalable*
 
 > `pip install Pillow`
 
 ### Installation de Python
-Vous devez donc avoir python 3.6 d'installer pour faire fonctionner notre application. Pour ce faire, il faut aller sur ce lien : https://www.python.org/downloads/release/python-360/ et télécharger la version correspondante à votre PC.<br>
-Une fois python d'installer, vous pouvez vous rendre directement dans le dossier sur lequel vous avez installer notre application, faire :<br>
-clic droit dessus ==> ouvrir avec ==> python 3.*
+
+Vous devez donc avoir python 3.6, ou plus, d'installer pour faire fonctionner notre application. Pour ce faire, il faut aller sur ce lien :<br>
+python 3.8 : https://www.python.org/downloads/release/python-380/ <br>
+et télécharger la version correspondante à votre PC.<br>
+Sur Mac, vous avez simplement à suivre le processus d'installation. <br>
+Sur Windows, n'oubliez pas de cocher la case : "Add Python 3.8 to PATH" lors de l'installation.<br>
+Si vous avez quelque difficulté pour l'installation sur Windows, https://www.youtube.com/watch?v=ZDnwD3Z1tPc <br><br>
+
+Une fois Python d'installé, vous pouvez vous rendre directement dans le dossier sur lequel vous avez installé notre application, faire :<br><br>
+sur Windows :<br>
+Cliquez sur la barre de chemin du dossier, et ecrivez > `cmd` <br><br>
+Sur Mac :<br>
+Préférences > Clavier > Raccourcis clavier > Services. Cherchez "Nouveau terminal ici" et "Nouvel onglet de terminal ici". Vous pouvez aussi les assigner à des raccourcis clavier.<br>
+Après avoir effectué cela, rendez-vous sur votre dossier d'installation de notre application : Clique droit > ouvrir un terminal ici. <br>
+
+
 
 ### Emplacement des dossiers/fichiers
 
