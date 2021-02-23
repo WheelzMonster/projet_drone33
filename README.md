@@ -10,6 +10,7 @@ This is our internship project : drone 33. This shall be edited into further det
 
 ### Bibliothèque à installer :
 *il faut bien évidement avoir python 3 et pip d'installé au préalable*
+Pour installer pip, tapez donc ceci dans un terminal, peu importe votre emplacement sur le terminal:
 
 > `pip install Pillow`
 
@@ -37,7 +38,7 @@ Après avoir effectué cela, rendez-vous sur votre dossier d'installation de not
 * README.md est donc le fichier que vous êtes en train de lire.
 * main.py est le fichier contenant le code de l'application. <br>
 
-Il faudra également mettre l'archive de votre site (créée par duplicator) à la racine de l'application. À savoir là où se trouve les dossiers et fichiers qui viennent d'être décrit. Lors de l'opération de l'application, cela va déziper l'archive du site que vous aurez mit à la racine et le glisser dans un dossier nommé "site".
+Il faudra également mettre l'archive de votre site (créée par duplicator) à la racine de l'application. À savoir là où se trouve les dossiers et fichiers qui viennent d'être décrit.
 
 ## Notice d'utilisation de l'interface de modification de site :
 
@@ -150,6 +151,10 @@ Les informations vont disparaitre pour cause de modifications. Pour ce faire, vo
  * Selectionner un des crayons des sections déjà existante.
  * Sur la gauche s'affiche un menu avec 3 sections, créer-en une avec les informations de contact nécéssaire.
  * Pour choisir sa position, déplacer l'onglet "contact" du menu de gauche plus ou moins en haut ou en bas des autres onglets.
+
+### Pour changer les phrases à modifier sur l'application
+Ouvrez un IDE ou un editeur de texte le fichier main.py.
+Allez dans la fonction "file operation" dans lequel sont répertoriées toutes les phrases déjà changées, et changez donc une phrase existante par le nouveau texte original.
 
 ## Tous les autres changements ou personnalisations que vous n'avez pas apperçu dans notre application, ou non décrite ici, sont à faire à la main, à travers Elementor ou l'onglet personnalisation de Wordpress directement
 
