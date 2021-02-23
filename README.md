@@ -77,17 +77,17 @@ les images suivante sont des couleurs à changer :<br>
 
 ![hoover de bouton](https://cdn.discordapp.com/attachments/510525802371219456/811700097720385536/15.png)
 #### Il faut donc mettre la code hexadécimal d'une couleur
-Par exemple, la couleur rouge du site drone33 est #C80108. Cependant, il est important de ne pas mettre le '#' avant, et de simplement mettre le code héxadécimal, à savoir : C80108.
+Par exemple, la couleur rouge du site drone33 est #C80108. Il faut donc bien écrire la totalité du code héxadécimal à savoir : #FFFFFF
 Ce changement va donc affecter la couleur du hover du bouton, donc la couleur qui s'affichera lorsqu'on passe la souris dessus. Sur la photo, c'est donc la couleur rosée qui va être affectée.<br><br><br><br>
 
 ![couleur des boutons](https://cdn.discordapp.com/attachments/510525802371219456/811700772936351775/7.png)
 #### Pour cette photo-ci, il faut egalement mettre le code héxadécimal.
-Même paterne que la photo précédente, le code hexadécimal de la couleur que vous souhaitez, sans le '#' avant, par exemple : C80108
+Même paterne que la photo précédente, le code hexadécimal de la couleur que vous souhaitez, par exemple : #C80108
 Ce changement va donc affecter la couleur des boutons du site. Cela va donc changer la couleur rouge que vous voyez par la couleur hexadécilamal que vous indiquerez.<br><br><br><br>
 
 ![couleur du pre-loader](https://cdn.discordapp.com/attachments/510525802371219456/811962000904683550/33.png)
 #### Pour cette photo-ci, il faut également mettre le code héxadécimal.
-Même paterne que la photo précédente, le code hexadécimal de la couleur que vous souhaitez, sans le '#' avant, par exemple : C80108
+Même paterne que la photo précédente, le code hexadécimal de la couleur que vous souhaitez : #C80108
 Ce changement va affecter la couleur du pré-loader du site, actuellement rouge, vous pouvez y mettre le code héxadécimal de la couleur que vous souhaitez.<br><br><br><br>
 
 ## Autres changements types affectés aux photos
@@ -151,6 +151,14 @@ Les informations vont disparaitre pour cause de modifications. Pour ce faire, vo
  * Selectionner un des crayons des sections déjà existante.
  * Sur la gauche s'affiche un menu avec 3 sections, créer-en une avec les informations de contact nécéssaire.
  * Pour choisir sa position, déplacer l'onglet "contact" du menu de gauche plus ou moins en haut ou en bas des autres onglets.
+
+### Changer le formulaire de contact
+
+la zone de formulaire de contact est également à changer à la main. Pour ce faire il faut :
+* Desinstaller le plugin Contact Form 7 du nouveau site, une fois exporté.
+* Télécharger l'extention directement sur le site du créateur : https://fr.wordpress.org/plugins/contact-form-7/
+* prendre le dossier du plugins et le mettre dans : wp-content/plugins/
+* Aller activer l'extention dans le back office du Wordpress de votre site (dans la partie administration avec les extentions) 
 
 ### Pour changer les phrases à modifier sur l'application
 Ouvrez un IDE ou un editeur de texte le fichier main.py.
