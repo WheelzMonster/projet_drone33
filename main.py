@@ -6,6 +6,7 @@ from pathlib import Path
 import shutil
 from ftplib import FTP
 import os
+import time
 
 root = Tk()
 root.geometry("1200x800-160-0")
@@ -95,27 +96,31 @@ def open_ftp_window():
     ftp_wd.title("exportation du site")
     ftp_wd.resizable(False, False)
     ftp_wd.config(background='#000')
-    host_input = create_input(ftp_wd, "nom d'hôte", 50, 50, 325, 50)
-    user_input = create_input(ftp_wd, "nom d'utilisateur", 50, 100, 325, 100)
-    user_password = create_input(ftp_wd, "mot de passe", 50, 150, 325, 150)
-    site_name = create_input(ftp_wd, "nom du site", 50, 200, 325, 200)
+    host_input = create_input(ftp_wd, "nom d'hôte", 50, 25, 325, 25)
+    user_input = create_input(ftp_wd, "nom d'utilisateur", 50, 75, 325, 75)
+    user_password = create_input(ftp_wd, "mot de passe", 50, 125, 325, 125)
+    site_name = create_input(ftp_wd, "nom du site", 50, 175, 325, 175)
 
     host = "depot-drone33.go.yj.fr"
     username = "gverepzz"
     password = "CGRj2Mfyr1HdQx"
 
-    def retrieve_file():
+    def retrieve_folder(dir_name):
+        time.sleep(1)
+        folder_name = dir_name.get()
+
         with FTP(host) as ftp:
             ftp.login(user=username, passwd=password)
             print(ftp.getwelcome())
 
-            with open('database.txt', 'wb') as f:
-                ftp.retrbinary("RETR " + "hello.txt", f.write, 1024)
+            with open(folder_name, 'wb') as f:
+                ftp.retrbinary("RETR " + folder_name, f.write, 1024)
 
             ftp.quit()
+        Label(ftp_wd, text="Les changements sont terminés!", font="none 14 bold", bg='#000000', fg='#fff', bd=0, justify=CENTER).place(x=50, y=325)
 
-    validation_button = create_button(ftp_wd, "Valider", 325, 275)
-    validation_button['command'] = retrieve_file
+    validation_button = create_button(ftp_wd, "Valider", 325, 225)
+    validation_button['command'] = lambda: retrieve_folder(site_name)
 
 
 # all widgets in the migration window
@@ -129,6 +134,7 @@ def open_migration_window():
     mig_wd.config(background='#000')
     email = create_input(mig_wd, 'email nouvel admin', 30, 20, 300, 20)
     username = create_input(mig_wd, 'nom nouvel admin', 30, 50, 300, 50)
+    ftp_dir = create_input(mig_wd, 'nom archive ftp', 830, 50, 1100, 50)
     mdp = create_input(mig_wd, 'mdp nouvel admin', 830, 20, 1100, 20)
     import_logo = create_button(mig_wd, 'importer un logo', 35, 100)
     import_logo["command"] = lambda: import_img("logo")
@@ -288,13 +294,13 @@ def open_migration_window():
         shutil.make_archive(new_name, 'zip', 'site')
         shutil.rmtree('site', ignore_errors=True)
 
-    def file_operations(var_list, name, pw, email):
+    def file_operations(var_list, name, pw, mail):
         Label(mig_wd, text="Les changements sont en cours, veuillez patienter...", font="none 14 bold", bg='#000000', fg='#fff', bd=0, justify=CENTER).place(x=50, y=700)
         unzip()
         sql_file = ''
         admin_name = name.get()
         admin_pw = pw.get()
-        admin_email = email.get()
+        admin_email = mail.get()
         actual_dir = str(Path.cwd())
 
         for dir in os.listdir('{0}/site/dup-installer'.format(actual_dir)):
@@ -563,7 +569,7 @@ def open_migration_window():
             lines = file.readlines()
             lines.insert(59845, 'TRUNCATE mod238_users;\n')
             lines.insert(59846, 'TRUNCATE mod238_usermeta;\n')
-            lines.insert(59847, "INSERT INTO mod238_users (ID, user_login, user_pass, user_nicename, user_email, user_url, user_registered, user_activation_key, user_status, display_name) VALUES ('1', '{0}', MD5('{1}'), '{0}', '{2}', '', '2021-01-02 00:00:00', '', '0', '{0}');\n".format(name, pw, email))
+            lines.insert(59847, "INSERT INTO mod238_users (ID, user_login, user_pass, user_nicename, user_email, user_url, user_registered, user_activation_key, user_status, display_name) VALUES ('1', '{0}', MD5('{1}'), '{0}', '{2}', '', '2021-01-02 00:00:00', '', '0', '{0}');\n".format(admin_name, admin_pw, admin_email))
             lines.insert(59848, '''INSERT INTO mod238_usermeta (umeta_id, user_id, meta_key, meta_value) VALUES (NULL, '1', 'mod238_capabilities', 'a:1:{s:13:"administrator";s:1:"1";}');\n''')
             lines.insert(59849, '''INSERT INTO mod238_usermeta (umeta_id, user_id, meta_key, meta_value) VALUES (NULL, '1', 'mod238_user_level', '10');\n''')
             with open(sql_path, 'w', encoding='utf-8') as _file:
