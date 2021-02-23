@@ -6,7 +6,6 @@ from pathlib import Path
 import shutil
 from ftplib import FTP
 import os
-import time
 
 root = Tk()
 root.geometry("1200x800-160-0")
@@ -106,7 +105,6 @@ def open_ftp_window():
     password = "CGRj2Mfyr1HdQx"
 
     def retrieve_folder(dir_name):
-        time.sleep(1)
         folder_name = dir_name.get()
 
         with FTP(host) as ftp:
