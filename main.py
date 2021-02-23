@@ -115,10 +115,27 @@ def open_ftp_window():
                 ftp.retrbinary("RETR " + folder_name, f.write, 1024)
 
             ftp.quit()
-        Label(ftp_wd, text="Les changements sont terminés!", font="none 14 bold", bg='#000000', fg='#fff', bd=0, justify=CENTER).place(x=50, y=325)
+        Label(ftp_wd, text="Votre archive a été importée!", font="none 14 bold", bg='#000000', fg='#fff', bd=0, justify=CENTER).place(x=50, y=325)
 
-    validation_button = create_button(ftp_wd, "Valider", 325, 225)
-    validation_button['command'] = lambda: retrieve_folder(site_name)
+
+    def store_folder(dir_name):
+        folder_name = dir_name.get()
+
+        with FTP(host) as ftp:
+            ftp.login(user=username, passwd=password)
+            print(ftp.getwelcome())
+
+            with open(folder_name, 'rb') as f:
+                ftp.storbinary()
+
+            ftp.quit()
+        Label(ftp_wd, text="Votre archive a été importée!", font="none 14 bold", bg='#000000', fg='#fff', bd=0, justify=CENTER).place(x=50, y=325)
+
+    import_button = create_button(ftp_wd, "Importer", 325, 225)
+    export_button = create_button(ftp_wd, "Exporter", 325, 225)
+    import_button['command'] = lambda: retrieve_folder(site_name)
+    export_button['command'] = lambda: store_folder(site_name)
+
 
 
 # all widgets in the migration window
