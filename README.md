@@ -13,6 +13,11 @@ This is our internship project : drone 33. This shall be edited into further det
 
 > `pip install Pillow`
 
+### Installation de Python
+Vous devez donc avoir python 3.6 d'installer pour faire fonctionner notre application. Pour ce faire, il faut aller sur ce lien : https://www.python.org/downloads/release/python-360/ et télécharger la version correspondante à votre PC.<br>
+Une fois python d'installer, vous pouvez vous rendre directement dans le dossier sur lequel vous avez installer notre application, faire :<br>
+clic droit dessus ==> ouvrir avec ==> python 3.*
+
 ### Emplacement des dossiers/fichiers
 
 * Le dossier img/slider contiendra toutes les images utilisées pour afficher les changements effectuer grâce à l'application.
