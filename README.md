@@ -8,12 +8,6 @@ This is our internship project : drone 33. This shall be edited into further det
 <br><br>
 ## Mise en place de l'application
 
-### Bibliothèque à installer :
-*il faut bien évidement avoir python 3 et pip d'installé au préalable*
-Pour installer pip, tapez donc ceci dans un terminal, peu importe votre emplacement sur le terminal:
-
-> `pip install Pillow`
-
 ### Installation de Python
 
 Vous devez donc avoir python 3.6, ou plus, d'installer pour faire fonctionner notre application. Pour ce faire, il faut aller sur ce lien :<br>
@@ -22,6 +16,12 @@ et télécharger la version correspondante à votre PC.<br>
 Sur Mac, vous avez simplement à suivre le processus d'installation. <br>
 Sur Windows, n'oubliez pas de cocher la case : "Add Python 3.8 to PATH" lors de l'installation.<br>
 Si vous avez quelque difficulté pour l'installation sur Windows, https://www.youtube.com/watch?v=ZDnwD3Z1tPc <br><br>
+
+### Bibliothèque à installer :
+*il faut bien évidement avoir python 3 et pip d'installé au préalable* <br>
+Pour installer pip, tapez donc ceci dans un terminal, peu importe votre emplacement sur le terminal:
+
+> `pip install Pillow`
 
 Une fois Python d'installé, vous pouvez vous rendre directement dans le dossier sur lequel vous avez installé notre application, faire :<br><br>
 sur Windows :<br>
