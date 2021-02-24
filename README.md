@@ -155,12 +155,21 @@ Les informations vont disparaitre pour cause de modifications. Pour ce faire, vo
 ### Changer le formulaire de contact
 
 la zone de formulaire de contact est également à changer à la main. Pour ce faire il faut :
+
 * Desinstaller le plugin Contact Form 7 du nouveau site, une fois exporté.
 * Télécharger l'extention directement sur le site du créateur : https://fr.wordpress.org/plugins/contact-form-7/
-* prendre le dossier du plugins et le mettre dans : wp-content/plugins/
-* Aller activer l'extention dans le back office du Wordpress de votre site (dans la partie administration avec les extentions) 
+* Vérifier que le dossier du plugin a bien disparu grâce au FTP du nouveau site.
+* Prendre le dossier du plugins fraichement téléchargé et le placer grâce au FTP dans : wp-content/plugins/
+* Retourner sur la page des extentions sur Worpress (rafraichir la page si nécéssaire)
+* Aller activer l'extention dans le back office du Wordpress de votre site (dans la partie administration avec les extentions)
+* Aller sur l'onglet "Contact" nouvellement apparu grâce à l'extention et remplir de nouveau les informations demandées par Contact Form 7.
+* Une fois toute les bonnes informations remplis, enregistrer le tout, copier le short-code (code court).
+* Aller sur le site et modifier avec Elementor, aller sur la partie formulaire de contact et inserer le nouveau code court à la place de l'ancien (l'id et le nom devrait être différent si vous ne l'avait pas changer)
+
+Vous pouvez enregistrer comme modèle le nouveau formulaire sur l'ancien modèle de formulaire. Grâce à cela vous pourrez copier le modèle à tous les endroits nécéssaire
 
 ### Pour changer les phrases à modifier sur l'application
+
 Ouvrez un IDE ou un editeur de texte le fichier main.py.
 Allez dans la fonction "file operation" dans lequel sont répertoriées toutes les phrases déjà changées, et changez donc une phrase existante par le nouveau texte original.
 
