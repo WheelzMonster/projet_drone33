@@ -6,6 +6,7 @@ from pathlib import Path
 import shutil
 from ftplib import FTP
 import os
+import zipfile
 
 root = Tk()
 root.geometry("1200x800-160-0")
@@ -137,11 +138,20 @@ def open_ftp_window():
     export_button['command'] = lambda: store_folder(site_name)
 
 
+def unzip():
+    for dir in os.listdir('.'):
+        if (dir.endswith('.zip')):
+            with zipfile.ZipFile(dir) as zf:
+                zf.extractall('site')
+
+def zip_file():
+    shutil.make_archive('final', 'zip', 'site')
 
 # all widgets in the migration window
 
 def open_migration_window():
     mig_wd = Toplevel()
+    unzip()
     mig_wd.geometry("1500x900")
     mig_wd.iconbitmap("img/drone33.ico")
     mig_wd.title("exportation du site")
@@ -292,26 +302,11 @@ def open_migration_window():
             shutil.copy(img_path.absolute(), dest_dir)
             Path.rename(Path("{0}/site/wp-content/uploads/2020/04/{1}".format(actual_dir, img_path.name)), Path("{0}/site/wp-content/uploads/2020/04/CGV-{1}.pdf".format(actual_dir, variable_list[3])))
 
-    def unzip():
-        for dir in os.listdir('.'):
-            if (dir.endswith('.zip')):
-                shutil.unpack_archive(dir, 'site', 'zip')
 
-    def zip():
-        new_name = ""
-
-        for dir in os.listdir('.'):
-            if dir.endswith('.zip'):
-                org_name = dir
-
-                for i in range(len(org_name) - 4):
-                    new_name = new_name + org_name[i]
-        shutil.make_archive(new_name, 'zip', 'site')
-        shutil.rmtree('site', ignore_errors=True)
 
     def file_operations(var_list, name, pw, mail):
         Label(mig_wd, text="Les changements sont en cours, veuillez patienter...", font="none 14 bold", bg='#000000', fg='#fff', bd=0, justify=CENTER).place(x=50, y=700)
-        unzip()
+        print('archive dézippé')
         sql_file = ''
         admin_name = name.get()
         admin_pw = pw.get()
@@ -590,7 +585,8 @@ def open_migration_window():
             with open(sql_path, 'w', encoding='utf-8') as _file:
                 for line in lines:
                     _file.write(line)
-        zip()
+        zip_file()
+        print('changements finis')
 
         Label(mig_wd, text="Changements terminés, vous pouvez fermer l'application en toute sécurité !", font="none 14 bold", bg='#000000', fg='#fff', bd=0, justify=CENTER).place(x=50, y=700)
 
