@@ -17,11 +17,6 @@ Sur Mac, vous avez simplement à suivre le processus d'installation. <br>
 Sur Windows, n'oubliez pas de cocher la case : "Add Python 3.8 to PATH" lors de l'installation.<br>
 Si vous avez quelque difficulté pour l'installation sur Windows, https://www.youtube.com/watch?v=ZDnwD3Z1tPc <br><br>
 
-### Bibliothèque à installer :
-*il faut bien évidement avoir python 3 et pip d'installé au préalable* <br>
-Pour installer pip, tapez donc ceci dans un terminal, peu importe votre emplacement sur le terminal:
-
-> `pip install Pillow`
 
 Une fois Python d'installé, vous pouvez vous rendre directement dans le dossier sur lequel vous avez installé notre application, faire :<br><br>
 sur Windows :<br>
@@ -30,7 +25,11 @@ Sur Mac :<br>
 Préférences > Clavier > Raccourcis clavier > Services. Cherchez "Nouveau terminal ici" et "Nouvel onglet de terminal ici". Vous pouvez aussi les assigner à des raccourcis clavier.<br>
 Après avoir effectué cela, rendez-vous sur votre dossier d'installation de notre application : Clique droit > ouvrir un terminal ici. <br>
 
+### Bibliothèque à installer :
+*il faut bien évidement avoir python 3 et pip d'installé au préalable* <br>
+Pour installer pip, tapez donc ceci dans un terminal, peu importe votre emplacement sur le terminal:
 
+> `pip install Pillow`
 
 ### Emplacement des dossiers/fichiers
 
