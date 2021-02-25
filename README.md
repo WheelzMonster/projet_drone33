@@ -10,9 +10,9 @@ This is our internship project : drone 33. This shall be edited into further det
 
 ### Installation de Python
 
-Vous devez donc avoir python 3.6, ou plus, d'installer pour faire fonctionner notre application. Pour ce faire, il faut aller sur ce lien :<br>
-python 3.8 : <br>
-Sur Mac, deve aller sur ce site :  https://www.python.org/downloads/release/python-380/ et suivre simplement le processus d'installation. <br>
+Vous devez donc avoir python 3.6, ou plus, d'installer pour faire fonctionner notre application. Pour ce faire: <br>
+
+Sur Mac, vous devez aller sur ce site :  https://www.python.org/downloads/release/python-380/ et suivre simplement le processus d'installation. <br>
 Sur Windows, allez sur un terminal et entrez : > `python3` <br>
 Cela va lancer votre microsoft store sur la page de Python à télécharger. Vous pouvez donc a partier de ce moment là suivre le processus d'intallation.<br><br>
 
