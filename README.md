@@ -182,7 +182,7 @@ La zone de formulaire de contact est également à changer à la main. Pour ce f
 *	Retourner sur la page des extensions sur WordPress (rafraichir la page si nécessaire)
 *	Aller activer l'extension dans le back office du Wordpress de votre site (dans la partie administration avec les extensions)
 *	Aller sur l'onglet "Contact" nouvellement apparu grâce à l'extension et remplir de nouveau les informations demandées par Contact Form 7.
-*	Une fois toute les bonnes informations remplis, enregistrer le tout, copier le short-code (code court).
+*	Une fois toute les bonnes informations remplis, enregistrer le tout, copier le short-code (code court). (les informations se trouvent dans le fichier word formulaire de contact si nécéssaire)
 *	Aller sur le site et modifier avec Elementor, aller sur la partie formulaire de contact et insérer le nouveau code court à la place de l'ancien (l'id et le nom devrait être différent si vous ne l'avait pas changé)
 
 
