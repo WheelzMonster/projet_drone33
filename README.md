@@ -6,23 +6,26 @@ This is our internship project : drone 33. This shall be edited into further det
 ## wordpress version **5.6**
 ## Python version 3.6+
 <br><br>
+
 ## Mise en place de l'application
 
 ### Installation de Python
 
-Vous devez donc avoir python 3.6, ou plus, d'installer pour faire fonctionner notre application. Pour ce faire: <br>
+Vous devez donc avoir python 3.6, ou plus, d'installer pour faire fonctionner notre application. Pour ce faire : <br>
 
-Sur Mac, vous devez aller sur ce site :  https://www.python.org/downloads/release/python-380/ et suivre simplement le processus d'installation. <br>
+Sur Mac, vous devez aller sur ce site : https://www.python.org/downloads/release/python-380/ et suivre simplement le processus d'installation. <br>
 Sur Windows, allez sur un terminal et entrez : > `python3` <br>
-Cela va lancer votre microsoft store sur la page de Python à télécharger. Vous pouvez donc a partier de ce moment là suivre le processus d'intallation.<br><br>
+Cela va lancer votre Microsoft store sur la page de Python à télécharger. Vous pouvez donc à partir de ce moment-là suivre le processus d'installation.<br><br>
 
 
 Une fois Python d'installé, vous pouvez vous rendre directement dans le dossier sur lequel vous avez installé notre application, faire :<br><br>
 sur Windows :<br>
-Cliquez sur la barre de chemin du dossier, et ecrivez > `cmd` <br><br>
+Cliquez sur la barre de chemin du dossier, et écrivez  > `cmd` <br><br>
 Sur Mac :<br>
 Préférences > Clavier > Raccourcis clavier > Services. Cherchez "Nouveau terminal ici" et "Nouvel onglet de terminal ici". Vous pouvez aussi les assigner à des raccourcis clavier.<br>
-Après avoir effectué cela, rendez-vous sur votre dossier d'installation de notre application : Clique droit > ouvrir un terminal ici. <br>
+Après avoir effectué cela, rendez-vous sur votre dossier d'installation de notre application : <br>
+Clique droit > ouvrir un terminal ici.
+<br>
 
 ### Bibliothèque à installer :
 *il faut bien évidement avoir python 3 et pip d'installé au préalable* <br>
@@ -32,28 +35,33 @@ Pour installer pip, tapez donc ceci dans un terminal, peu importe votre emplacem
 
 ### Emplacement des dossiers/fichiers
 
-* Le dossier img/slider contiendra toutes les images utilisées pour afficher les changements effectuer grâce à l'application.
-* README.md est donc le fichier que vous êtes en train de lire.
-* main.py est le fichier contenant le code de l'application. <br>
+*	Le dossier img/slider contiendra toutes les images utilisées pour afficher les changements effectuer grâce à l'application.
+*	README.md est donc le fichier que vous êtes en train de lire.
+*	main.py est le fichier contenant le code de l'application.
+
+ <br>
 
 Il faudra également mettre l'archive de votre site (créée par duplicator) à la racine de l'application. À savoir là où se trouve les dossiers et fichiers qui viennent d'être décrit.
 
 ## Notice d'utilisation de l'interface de modification de site :
 
-### Pour vous rendre sur notre application, vous devez donc avoir un terminal ouvert à l'emplacement de notre application. Une fois cela fait, vous devez écrire dans le terminal : 
+### Pour vous rendre sur notre application, vous devez donc avoir un terminal ouvert à l'emplacement de notre application. Une fois cela fait, vous devez écrire dans le terminal  : 
+
 > `python3 main.py`
-Cela va donc lancer notre application pour vous retrouver sur le menu principale.
 
-### Une fois situé sur le menu principale de l'interface, selectionner le bouton "migration"
+Cela va donc lancer notre application pour vous retrouver sur le menu principal.
 
-Une fois le bouton cliqué, le bouton va se mettre en blanc et l'application va charger un peu, c'est le temps qu'il faut pour déziper l'archive mit à la racine de l'application.
+### Une fois situé sur le menu principal de l'interface, sélectionner le bouton "migration"
+
+Une fois le bouton cliqué, le bouton va se mettre en blanc et l'application va charger un peu, c'est le temps qu'il faut pour dézipper l'archive mit à la racine de l'application.
 Cela va donc vous ouvrir une nouvelle fenêtre et vous offrir un panel de possibilités de changements.
 
 ## Dans un premier temps et avant toutes choses, vous devez faire les changements de textes au niveau du slider d'images que vous verrez sur l'application.
 /!\ Il ne faut donc pas commencer par faire le changement des photos grâce aux boutons sur la gauche de la fenêtre. /!\
 
 ### Faire les changements de texte sur votre nouveau site à migrer
-La principale chose que vous allez voir son des screens avec des encadrés <b>JAUNE</b>. Ces encradrés représentent l'exactitude des changements qui vont être appliqués sur le site. Donc lorsqu'un texte est encadré d'un rectangle jaune, il faut le changer par exactement ce que vous souhaiter mettre à la place. Il est donc important de garder les majuscules, ponctuations, accents, parenthèses qui sont <b>BIEN VISIBLE DANS LE CARRÉ JAUNE</b>. Dans le cas contraire, il manquera surement ces derniers sur le site.
+
+La principale chose que vous allez voir son des screens avec des encadrés <b>JAUNE</b>. Ces encadrés représentent l'exactitude des changements qui vont être appliqués sur le site. Donc lorsqu'un texte est encadré d'un rectangle jaune, il faut le changer par exactement ce que vous souhaitez mettre à la place. Il est donc important de garder les majuscules, ponctuations, accents, parenthèses qui sont <b>BIEN VISIBLE DANS LE CARRÉ JAUNE</b>. Dans le cas contraire, il manquera surement ces derniers sur le site.
 <br>
 Pour faire un changement proprement, il faut donc :
 * 1- Aller sur l'image correspondante au changement
@@ -80,37 +88,38 @@ les images suivante sont des couleurs à changer :<br>
 
 ![hoover de bouton](https://cdn.discordapp.com/attachments/510525802371219456/811700097720385536/15.png)
 #### Il faut donc mettre la code hexadécimal d'une couleur
-Par exemple, la couleur rouge du site drone33 est #C80108. Il faut donc bien écrire la totalité du code héxadécimal à savoir : #FFFFFF
-Ce changement va donc affecter la couleur du hover du bouton, donc la couleur qui s'affichera lorsqu'on passe la souris dessus. Sur la photo, c'est donc la couleur rosée qui va être affectée.<br><br><br><br>
+Par exemple, la couleur rouge du site drone33 est #C80108. Il faut donc bien écrire la totalité du code hexadécimal à savoir : #FFFFFF 
+Ce changement va donc affecter la couleur du hover du bouton, donc la couleur qui s'affichera lorsqu'on passe la souris dessus. Sur la photo, c'est donc la couleur rosée qui va être affectée.
+<br><br><br><br>
 
 ![couleur des boutons](https://cdn.discordapp.com/attachments/510525802371219456/811700772936351775/7.png)
-#### Pour cette photo-ci, il faut egalement mettre le code héxadécimal.
-Même paterne que la photo précédente, le code hexadécimal de la couleur que vous souhaitez, par exemple : #C80108
-Ce changement va donc affecter la couleur des boutons du site. Cela va donc changer la couleur rouge que vous voyez par la couleur hexadécilamal que vous indiquerez.<br><br><br><br>
+#### Pour cette photo-ci, il faut également mettre le code hexadécimal.
+Même paterne que la photo précédente, le code hexadécimal de la couleur que vous souhaitez, par exemple : #C80108 Ce changement va donc affecter la couleur des boutons du site. Cela va donc changer la couleur rouge que vous voyez par la couleur hexadécimale que vous indiquerez.<br><br><br><br>
 
 ![couleur du pre-loader](https://cdn.discordapp.com/attachments/510525802371219456/811962000904683550/33.png)
-#### Pour cette photo-ci, il faut également mettre le code héxadécimal.
-Même paterne que la photo précédente, le code hexadécimal de la couleur que vous souhaitez : #C80108
-Ce changement va affecter la couleur du pré-loader du site, actuellement rouge, vous pouvez y mettre le code héxadécimal de la couleur que vous souhaitez.<br><br><br><br>
+#### Pour cette photo-ci, il faut également mettre le code hexadécimal.
+Même paterne que la photo précédente, le code hexadécimal de la couleur que vous souhaitez : #C80108 Ce changement va affecter la couleur du pré-loader du site, actuellement rouge, vous pouvez y mettre le code hexadécimal de la couleur que vous souhaitez.
+<br><br><br><br>
 
 ## Autres changements types affectés aux photos
 
 ![changement Charle DEBITUS](https://cdn.discordapp.com/attachments/510525802371219456/811964161306787850/26.png)
 #### Changement de texte simple
-Ici, c'est un texte simple à changer. Il ne faut cependant pas se tromper et bien changer uniquement ce qu'il y a dans le rectangle jaune. Veillez à bien garder la syntaxe de Charles DEBITUS, par Jean DUPONT, par exemple, donc Prénom NOM.<br><br><br><br>
+Ici, c'est un texte simple à changer. Il ne faut cependant pas se tromper et bien changer uniquement ce qu'il y a dans le rectangle jaune. Veillez à bien garder la syntaxe de Charles DEBITUS, par Jean DUPONT, par exemple, donc Prénom NOM.
+<br><br><br><br>
 
 ![changement DRONE33](https://cdn.discordapp.com/attachments/510525802371219456/812335670496460801/4.png)
 #### Changement de texte simple
-Ici encore, il faut bien respecter la syntaxe si vous voulez garder cette derniere. En effet, sur la photo y est encadré DRONE33, il faut donc remplacer DRONE33 par DRONE12 par exemple, et non DRONE 12, ou encore drone 12, drone12. Il est important de garder la même syntaxe qui est indiquer dans l'encadré jaune.<br><br><br><br>
+Ici encore, il faut bien respecter la syntaxe si vous voulez garder cette dernière. En effet, sur la photo y est encadré DRONE33, il faut donc remplacer DRONE33 par DRONE12 par exemple, et non DRONE 12, ou encore drone 12, drone12. Il est important de garder la même syntaxe qui est indiquer dans l'encadré jaune.<br><br><br><br>
 
 ![changement de 'tribunaux de bordeaux'](https://cdn.discordapp.com/attachments/510525802371219456/812337051973451806/23.png)
 #### Autre exemple de changement
-Ici, il est important de changer toute la phrase qui est encadré, même si le but final est de changer la ville. Nous avons décider de faire cela car cela nous permet de cibler les bonnes phrases à changer. Ici, il faut donc modifier la phrase totale et remplacer par : "aux tribunaux compétents de Rodez" par exemple.<br><br><br><br>
+Ici, il est important de changer toute la phrase qui est encadré, même si le but est de changer la ville. Nous avons décidé de faire cela car cela nous permet de cibler les bonnes phrases à changer. Ici, il faut donc modifier la phrase totale et remplacer par : "aux tribunaux compétents de Rodez" par exemple.<br><br><br><br>
 
 
 ## Changement du logo, CGV et des télé-pilotes
 
-#### Après avoir changer le texte de chacune des images présentes, passons aux changements des images du site.
+#### Après avoir changé le texte de chacune des images présentes, passons aux changements des images du site.
 
 Vous trouverez 4 boutons : 
 * Importer un logo
@@ -118,16 +127,18 @@ Vous trouverez 4 boutons :
 * Importer photo pilote 2
 * Importer CGV
 
-Ces 4 boutons vont chacun vous ouvrir votre exploratreur de fichier et vous demander d'aller chercher l'image que vous souhaitez choisir pour : le logo, le télé-pilote 1, le télé-pilote 2 et le PDF de la nouvelle CGV.
+Ces 4 boutons vont chacun vous ouvrir votre explorateur de fichier et vous demander d'aller chercher l'image que vous souhaitez choisir pour : le logo, le télé-pilote 1, le télé-pilote 2 et le PDF de la nouvelle CGV.
 
 ## Changement du compte de l'administration
 
-Après avoir fait les changement précédents, vous pouvez entrer dans les zone de texte en haut de l'application les renseignements demandés, à savoir votre mail, votre nom de compte et votre mot de passe pour votre compte administrateur de wordpress.
+Après avoir fait les changements précédents, vous pouvez entrer dans les zones de texte en haut de l'application les renseignements demandés, à savoir votre mail, votre nom de compte et votre mot de passe pour votre compte administrateur de WordPress.
 
 <b>Je tiens à préciser que cette étape doit se faire APRÈS avoir fait les modifications de texte avec le slider d'image.</b>
 
-## Une fois tous ces changement fait, merci d'appuyer sur le bouton "terminer" afin d'appliquer tous les changements au dossier du site.
-Une fois appuyé sur le bouton, vous verrez le bouton devenr blanc et le rester tant que les modifications n'ont pas fini de s'appliquer sur le dossier.
+## Une fois tous ces changements fait, merci d'appuyer sur le bouton "terminer" afin d'appliquer tous les changements au dossier du site.
+Une fois appuyé sur le bouton, vous verrez le bouton devenir blanc et le rester tant que les modifications n'ont pas fini de s'appliquer sur le dossier. Il va falloir donc patienter environ 3 minutes. Il se peut même que votre application ne réponde pas, c’est simplement qu’elle est en train de travailler.<br>
+Une fois les changements appliqués, un message s’affichera sur l’application vous disant que vous pouvez fermer l’application sans soucis.
+
 
 ![bouton terminer](https://cdn.discordapp.com/attachments/510525802371219456/813429672087781376/finish_button.png)
 
@@ -135,52 +146,54 @@ Une fois appuyé sur le bouton, vous verrez le bouton devenr blanc et le rester 
 
 # Changement à faire à la main
 
-### Il y a, suite a quelques modifications, des changements à faire à la main afin de s'assurer du bon changement de toutes les informations du nouveau site
+### Il y a, suite à quelques modifications, des changements à faire à la main afin de s'assurer du bon changement de toutes les informations du nouveau site
 * <b>Si ce n'est pas déjà fait, se connecter avec les nouveaux identifiants d'administration du site</b>
 * <b>Rafraichir toutes les pages du site avec Elementor</b><br>
 
-Pour ce faire, se connecter avec les indentifiants administrateur sur le Wordpress, et faire "modifier avec Elementor", faire un changement temporaire, qui n'impact rien (effacer une lettre et la remettre par exemple) pour avoir le bouton "mettre à jour" disponible en bas à gauche et cliquer dessus.
+Pour ce faire, se connecter avec les identifiants administrateur sur le Wordpress, et faire "modifier avec Elementor", faire un changement temporaire, qui n'impact rien (effacer une lettre et la remettre par exemple) pour avoir le bouton "mettre à jour" disponible en bas à gauche et cliquer dessus.
 
 * <b>Rafraichir le site une fois avec l'onglet "Personaliser"</b><br>
 
-Faire un changement temporaire, qui n'impact rien (desactiver et ré-activer une fonctionnalité par exemple) pour avoir le bouton "publier" disponible, et appuyer dessus.
+Faire un changement temporaire, qui n'impact rien (désactiver et réactiver une fonctionnalité par exemple) pour avoir le bouton "publier" disponible, et appuyer dessus.
 
 ### Ces changements permettent majoritairement de faire apparaître toutes les couleurs mise à jour.
 
-Cela enlevera possiblement des images sur le site, comme des images dans les services, ou encore dans les réalisations. Il faut donc remettre ces images à la main, que ce soit par Elementor pour tout le site, et par l'onglet de personnalisation pour la page réalisation.
+Cela enlèvera possiblement des images sur le site, comme des images dans les services, ou encore dans les réalisations. Il faut donc remettre ces images à la main, que ce soit par Elementor pour tout le site, et par l'onglet de personnalisation pour la page réalisation.
 
 ### Il faut refaire également la section contact dans le footer.
 
 Les informations vont disparaitre pour cause de modifications. Pour ce faire, vous devez :
 
  * Aller sur l'onglet "Personnaliser" lorsque vous êtes connecté.
- * Descendre tout en bas pour apercevoir le footer.
- * Selectionner un des crayons des sections déjà existante.
- * Sur la gauche s'affiche un menu avec 3 sections, créer-en une avec les informations de contact nécéssaire.
- * Pour choisir sa position, déplacer l'onglet "contact" du menu de gauche plus ou moins en haut ou en bas des autres onglets.
+ *	Descendre tout en bas pour apercevoir le footer.
+ *	Sélectionner un des crayons des sections déjà existante.
+ *	Sur la gauche s'affiche un menu avec 3 sections, créer-en une avec les informations de contact nécessaire.
+ *	Pour choisir sa position, déplacer l'onglet "contact" du menu de gauche plus ou moins en haut ou en bas des autres onglets.
+
 
 ### Changer le formulaire de contact
 
-la zone de formulaire de contact est également à changer à la main. Pour ce faire il faut :
+La zone de formulaire de contact est également à changer à la main. Pour ce faire il faut :
 
-* Desinstaller le plugin Contact Form 7 du nouveau site, une fois exporté.
-* Télécharger l'extention directement sur le site du créateur : https://fr.wordpress.org/plugins/contact-form-7/
-* Vérifier que le dossier du plugin a bien disparu grâce au FTP du nouveau site.
-* Prendre le dossier du plugins fraichement téléchargé et le placer grâce au FTP dans : wp-content/plugins/
-* Retourner sur la page des extentions sur Worpress (rafraichir la page si nécéssaire)
-* Aller activer l'extention dans le back office du Wordpress de votre site (dans la partie administration avec les extentions)
-* Aller sur l'onglet "Contact" nouvellement apparu grâce à l'extention et remplir de nouveau les informations demandées par Contact Form 7.
-* Une fois toute les bonnes informations remplis, enregistrer le tout, copier le short-code (code court).
-* Aller sur le site et modifier avec Elementor, aller sur la partie formulaire de contact et inserer le nouveau code court à la place de l'ancien (l'id et le nom devrait être différent si vous ne l'avait pas changer)
+*	Désinstaller le plugin Contact Form 7 du nouveau site, une fois exporté.
+*	Télécharger l'extension directement sur le site du créateur : https://fr.wordpress.org/plugins/contact-form-7/
+*	Vérifier que le dossier du plugin a bien disparu grâce au FTP du nouveau site.
+*	Prendre le dossier du plugin fraichement téléchargé et le placer grâce au FTP dans : wp-content/plugins/
+*	Retourner sur la page des extensions sur WordPress (rafraichir la page si nécessaire)
+*	Aller activer l'extension dans le back office du Wordpress de votre site (dans la partie administration avec les extensions)
+*	Aller sur l'onglet "Contact" nouvellement apparu grâce à l'extension et remplir de nouveau les informations demandées par Contact Form 7.
+*	Une fois toute les bonnes informations remplis, enregistrer le tout, copier le short-code (code court).
+*	Aller sur le site et modifier avec Elementor, aller sur la partie formulaire de contact et insérer le nouveau code court à la place de l'ancien (l'id et le nom devrait être différent si vous ne l'avait pas changé)
 
-Vous pouvez enregistrer comme modèle le nouveau formulaire sur l'ancien modèle de formulaire. Grâce à cela vous pourrez copier le modèle à tous les endroits nécéssaire
+
+Vous pouvez enregistrer comme modèle le nouveau formulaire sur l'ancien modèle de formulaire. Grâce à cela vous pourrez copier le modèle à tous les endroits nécessaires.
 
 ### Pour changer les phrases à modifier sur l'application
 
-Ouvrez un IDE ou un editeur de texte le fichier main.py.
-Allez dans la fonction "file operation" dans lequel sont répertoriées toutes les phrases déjà changées, et changez donc une phrase existante par le nouveau texte original.
+Ouvrez un IDE ou un éditeur de texte le fichier main.py.
+Allez dans la fonction "file operations" dans lequel sont répertoriées toutes les phrases déjà changées, et changez donc une phrase existante par le nouveau texte original.
 
-## Tous les autres changements ou personnalisations que vous n'avez pas apperçu dans notre application, ou non décrite ici, sont à faire à la main, à travers Elementor ou l'onglet personnalisation de Wordpress directement
+## Tous les autres changements ou personnalisations que vous n'avez pas aperçu dans notre application, ou non décrite ici, sont à faire à la main, à travers Elementor ou l'onglet personnalisation de Wordpress directement
 <br>
 Vous pouvez notamment faire : 
 
