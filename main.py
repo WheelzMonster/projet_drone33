@@ -84,13 +84,14 @@ def create_input(window, text_label, label_posx, label_posy, input_posx, input_p
 
 
 def make_ftp_folder(dirname):
-    os.mkdir(dirname)
+    folder_name = dirname.get()
+    os.mkdir(folder_name)
     for dir in os.listdir('.'):
         if dir.endswith('zip'):
-            shutil.move(dir, dirname)
-    shutil.move('installer.php', dirname)
-    shutil.make_archive(dirname, 'zip', dirname)
-    shutil.rmtree(dirname, ignore_errors=True)
+            shutil.move(dir, folder_name)
+    shutil.move('installer.php', folder_name)
+    shutil.make_archive(folder_name, 'zip', folder_name)
+    shutil.rmtree(folder_name, ignore_errors=True)
 
 
 # event trigger functions
@@ -107,46 +108,50 @@ def open_ftp_window():
     ftp_wd.resizable(False, False)
     ftp_wd.config(background='#000')
     host_input = create_input(ftp_wd, "nom d'hôte", 50, 25, 325, 25)
-    user_input = create_input(ftp_wd, "nom d'utilisateur", 50, 75, 325, 75)
+    username_input = create_input(ftp_wd, "nom d'utilisateur", 50, 75, 325, 75)
     user_password = create_input(ftp_wd, "mot de passe", 50, 125, 325, 125)
     site_name = create_input(ftp_wd, "nom de l'archive", 50, 175, 325, 175)
     path = create_input(ftp_wd, "chemin (vide = /)", 50, 225, 325, 225)
 
-    host = "depot-drone33.go.yj.fr"
-    username = "gverepzz"
-    password = "CGRj2Mfyr1HdQx"
-
-    def retrieve_folder(dir_name):
+    def retrieve_folder(hst, usr, pw, dir_name):
         folder_name = dir_name.get()
+        host = hst.get()
+        username = usr.get()
+        password = pw.get()
 
         with FTP(host) as ftp:
             ftp.login(user=username, passwd=password)
             print(ftp.getwelcome())
 
-            with open(folder_name, 'wb') as f:
-                ftp.retrbinary("RETR " + folder_name, f.write, 1024)
+            with open('{0}.zip'.format(folder_name), 'wb') as f:
+                ftp.retrbinary("RETR " + '{0}.zip'.format(folder_name), f.write, 1024)
 
             ftp.quit()
         Label(ftp_wd, text="Votre archive a été importée!", font="none 14 bold", bg='#000000', fg='#fff', bd=0,
               justify=CENTER).place(x=50, y=325)
 
-    def store_folder(dir_name):
+    def store_folder(hst, usr, pw, dir_name):
+        make_ftp_folder(dir_name)
         folder_name = dir_name.get()
+        host = hst.get()
+        username = usr.get()
+        password = pw.get()
 
         with FTP(host) as ftp:
             ftp.login(user=username, passwd=password)
             print(ftp.getwelcome())
 
-            with open(folder_name, 'rb') as f:
-                ftp.storbinary()
+            with open('{0}.zip'.format(folder_name), 'rb') as f:
+                ftp.storbinary('STOR ' + '{0}.zip'.format(folder_name), f)
 
             ftp.quit()
-        Label(ftp_wd, text="Votre archive a été importée!", font="none 14 bold", bg='#000000', fg='#fff', bd=0, justify=CENTER).place(x=50, y=325)
+        os.remove('{0}.zip'.format(folder_name))
+        Label(ftp_wd, text="Votre archive a été exportée!", font="none 14 bold", bg='#000000', fg='#fff', bd=0, justify=CENTER).place(x=50, y=325)
 
     import_button = create_button(ftp_wd, "Importer", 225, 275)
     export_button = create_button(ftp_wd, " Exporter ", 405, 275)
-    import_button['command'] = lambda: retrieve_folder(site_name)
-    export_button['command'] = lambda: store_folder(site_name)
+    import_button['command'] = lambda: retrieve_folder(host_input, username_input, user_password, site_name)
+    export_button['command'] = lambda: store_folder(host_input, username_input, user_password, site_name)
 
 
 def unzip():
@@ -316,11 +321,11 @@ def open_migration_window():
         elif dest == "pilote1":
             dest_dir = Path("{0}/site/wp-content/uploads/2019/09".format(actual_dir))
             shutil.copy(img_path.absolute(), dest_dir)
-            Path.rename(Path("{0}/site/wp-content/uploads/2019/09/{1}".format(actual_dir, img_path.name)), Path("{0}/site/wp-content/uploads/2019/09/Team-Adrien-768x768.png".format(actual_dir)))
+            shutil.move(Path("{0}/site/wp-content/uploads/2019/09/{1}".format(actual_dir, img_path.name)), Path("{0}/site/wp-content/uploads/2019/09/Team-Adrien-768x768.png".format(actual_dir)))
         elif dest == "pilote2":
             dest_dir = Path("{0}/site/wp-content/uploads/2019/09".format(actual_dir))
             shutil.copy(img_path.absolute(), dest_dir)
-            Path.rename(Path("{0}/site/wp-content/uploads/2019/09/{1}".format(actual_dir, img_path.name)), Path("{0}/site/wp-content/uploads/2019/09/Team-Charles-768x768.png".format(actual_dir)))
+            shutil.move(Path("{0}/site/wp-content/uploads/2019/09/{1}".format(actual_dir, img_path.name)), Path("{0}/site/wp-content/uploads/2019/09/Team-Charles-768x768.png".format(actual_dir)))
         elif dest == "cgv":
             dest_dir = Path("{0}/site/wp-content/uploads/2020/04".format(actual_dir))
             shutil.copy(img_path.absolute(), dest_dir)
