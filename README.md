@@ -10,12 +10,11 @@ This is our internship project : drone 33. This shall be edited into further det
 
 ### Installation de Python
 
-Vous devez donc avoir python 3.6, ou plus, d'installer pour faire fonctionner notre application. Pour ce faire, il faut aller sur ce lien :<br>
-python 3.8 : https://www.python.org/downloads/release/python-380/ <br>
-et télécharger la version correspondante à votre PC.<br>
-Sur Mac, vous avez simplement à suivre le processus d'installation. <br>
-Sur Windows, n'oubliez pas de cocher la case : "Add Python 3.8 to PATH" lors de l'installation.<br>
-Si vous avez quelque difficulté pour l'installation sur Windows, https://www.youtube.com/watch?v=ZDnwD3Z1tPc <br><br>
+Vous devez donc avoir python 3.6, ou plus, d'installer pour faire fonctionner notre application. Pour ce faire: <br>
+
+Sur Mac, vous devez aller sur ce site :  https://www.python.org/downloads/release/python-380/ et suivre simplement le processus d'installation. <br>
+Sur Windows, allez sur un terminal et entrez : > `python3` <br>
+Cela va lancer votre microsoft store sur la page de Python à télécharger. Vous pouvez donc a partier de ce moment là suivre le processus d'intallation.<br><br>
 
 
 Une fois Python d'installé, vous pouvez vous rendre directement dans le dossier sur lequel vous avez installé notre application, faire :<br><br>
@@ -41,8 +40,13 @@ Il faudra également mettre l'archive de votre site (créée par duplicator) à 
 
 ## Notice d'utilisation de l'interface de modification de site :
 
+### Pour vous rendre sur notre application, vous devez donc avoir un terminal ouvert à l'emplacement de notre application. Une fois cela fait, vous devez écrire dans le terminal : 
+> `python3 main.py`
+Cela va donc lancer notre application pour vous retrouver sur le menu principale.
+
 ### Une fois situé sur le menu principale de l'interface, selectionner le bouton "migration"
 
+Une fois le bouton cliqué, le bouton va se mettre en blanc et l'application va charger un peu, c'est le temps qu'il faut pour déziper l'archive mit à la racine de l'application.
 Cela va donc vous ouvrir une nouvelle fenêtre et vous offrir un panel de possibilités de changements.
 
 ## Dans un premier temps et avant toutes choses, vous devez faire les changements de textes au niveau du slider d'images que vous verrez sur l'application.
@@ -116,6 +120,10 @@ Vous trouverez 4 boutons :
 
 Ces 4 boutons vont chacun vous ouvrir votre exploratreur de fichier et vous demander d'aller chercher l'image que vous souhaitez choisir pour : le logo, le télé-pilote 1, le télé-pilote 2 et le PDF de la nouvelle CGV.
 
+## Changement du compte de l'administration
+
+Après avoir fait les changement précédents, vous pouvez entrer dans les zone de texte en haut de l'application les renseignements demandés, à savoir votre mail, votre nom de compte et votre mot de passe pour votre compte administrateur de wordpress.
+
 <b>Je tiens à préciser que cette étape doit se faire APRÈS avoir fait les modifications de texte avec le slider d'image.</b>
 
 ## Une fois tous ces changement fait, merci d'appuyer sur le bouton "terminer" afin d'appliquer tous les changements au dossier du site.
@@ -173,4 +181,14 @@ Ouvrez un IDE ou un editeur de texte le fichier main.py.
 Allez dans la fonction "file operation" dans lequel sont répertoriées toutes les phrases déjà changées, et changez donc une phrase existante par le nouveau texte original.
 
 ## Tous les autres changements ou personnalisations que vous n'avez pas apperçu dans notre application, ou non décrite ici, sont à faire à la main, à travers Elementor ou l'onglet personnalisation de Wordpress directement
+<br>
+Vous pouvez notamment faire : 
+
+* changer les photos sur site
+* changer la vidéo de fond dans la page d'accueil
+* changer sur rank math les informations
+* Ajouter ou enlever des pages si nécéssaire
+* Changer les documents officiels des télé-pilotes
+* Changer le scénario de vol
+* tous autres changements d'identités, d'esthétique, de personnalisation du site que vous souhaitez...
 
