@@ -83,6 +83,16 @@ def create_input(window, text_label, label_posx, label_posy, input_posx, input_p
     return user_input
 
 
+def make_ftp_folder(dirname):
+    os.mkdir(dirname)
+    for dir in os.listdir('.'):
+        if dir.endswith('zip'):
+            shutil.move(dir, dirname)
+    shutil.move('installer.php', dirname)
+    shutil.make_archive(dirname, 'zip', dirname)
+    shutil.rmtree(dirname, ignore_errors=True)
+
+
 # event trigger functions
 def save():
     print("sauvegarde")
@@ -99,7 +109,8 @@ def open_ftp_window():
     host_input = create_input(ftp_wd, "nom d'hôte", 50, 25, 325, 25)
     user_input = create_input(ftp_wd, "nom d'utilisateur", 50, 75, 325, 75)
     user_password = create_input(ftp_wd, "mot de passe", 50, 125, 325, 125)
-    site_name = create_input(ftp_wd, "nom du site", 50, 175, 325, 175)
+    site_name = create_input(ftp_wd, "nom de l'archive", 50, 175, 325, 175)
+    path = create_input(ftp_wd, "chemin (vide = /)", 50, 225, 325, 225)
 
     host = "depot-drone33.go.yj.fr"
     username = "gverepzz"
@@ -116,8 +127,8 @@ def open_ftp_window():
                 ftp.retrbinary("RETR " + folder_name, f.write, 1024)
 
             ftp.quit()
-        Label(ftp_wd, text="Votre archive a été importée!", font="none 14 bold", bg='#000000', fg='#fff', bd=0, justify=CENTER).place(x=50, y=325)
-
+        Label(ftp_wd, text="Votre archive a été importée!", font="none 14 bold", bg='#000000', fg='#fff', bd=0,
+              justify=CENTER).place(x=50, y=325)
 
     def store_folder(dir_name):
         folder_name = dir_name.get()
@@ -132,8 +143,8 @@ def open_ftp_window():
             ftp.quit()
         Label(ftp_wd, text="Votre archive a été importée!", font="none 14 bold", bg='#000000', fg='#fff', bd=0, justify=CENTER).place(x=50, y=325)
 
-    import_button = create_button(ftp_wd, "Importer", 325, 225)
-    export_button = create_button(ftp_wd, "Exporter", 325, 225)
+    import_button = create_button(ftp_wd, "Importer", 225, 275)
+    export_button = create_button(ftp_wd, " Exporter ", 405, 275)
     import_button['command'] = lambda: retrieve_folder(site_name)
     export_button['command'] = lambda: store_folder(site_name)
 
@@ -144,8 +155,20 @@ def unzip():
             with zipfile.ZipFile(dir) as zf:
                 zf.extractall('site')
 
-def zip_file():
-    shutil.make_archive('final', 'zip', 'site')
+
+def zip_folder():
+    new_name = ""
+
+    for dir in os.listdir('.'):
+        if dir.endswith('.zip'):
+            org_name = dir
+            shutil.rmtree(dir, ignore_errors=True)
+
+            for i in range(len(org_name) - 4):
+                new_name = new_name + org_name[i]
+    shutil.make_archive(new_name, 'zip', 'site')
+    shutil.rmtree('site', ignore_errors=True)
+
 
 # all widgets in the migration window
 
@@ -159,7 +182,6 @@ def open_migration_window():
     mig_wd.config(background='#000')
     email = create_input(mig_wd, 'email nouvel admin', 30, 20, 300, 20)
     username = create_input(mig_wd, 'nom nouvel admin', 30, 50, 300, 50)
-    ftp_dir = create_input(mig_wd, 'nom archive ftp', 830, 50, 1100, 50)
     mdp = create_input(mig_wd, 'mdp nouvel admin', 830, 20, 1100, 20)
     import_logo = create_button(mig_wd, 'importer un logo', 35, 100)
     import_logo["command"] = lambda: import_img("logo")
@@ -220,7 +242,10 @@ def open_migration_window():
 
     variable_list = []
 
-    img_list = [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img12, img13, img14, img15, img16, img17, img18, img19, img20, img21, img22, img23, img24, img25, img26, img27, img28, img29, img30, img31, img32, img33, img34, img35, img36, img37, img38, img39, img40, img41, img42, img43, img44, img45, img46, img47, img48]
+    img_list = [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img12, img13, img14, img15, img16,
+                img17, img18, img19, img20, img21, img22, img23, img24, img25, img26, img27, img28, img29, img30, img31,
+                img32, img33, img34, img35, img36, img37, img38, img39, img40, img41, img42, img43, img44, img45, img46,
+                img47, img48]
 
     global slider_label
     slider_label = Label(mig_wd, image=img1)
@@ -282,7 +307,6 @@ def open_migration_window():
 
     def import_img(dest):
         filename = filedialog.askopenfilename(initialdir=Path.cwd(), title="Selectionnez un logo", filetypes=(("png files", "*.png"), ("all files", "*.*")))
-        image_to_import = ImageTk.PhotoImage(Image.open(filename))
         img_path = Path(filename)
         actual_dir = str(Path.cwd())
         if dest == "logo":
@@ -302,10 +326,9 @@ def open_migration_window():
             shutil.copy(img_path.absolute(), dest_dir)
             Path.rename(Path("{0}/site/wp-content/uploads/2020/04/{1}".format(actual_dir, img_path.name)), Path("{0}/site/wp-content/uploads/2020/04/CGV-{1}.pdf".format(actual_dir, variable_list[3])))
 
-
-
     def file_operations(var_list, name, pw, mail):
-        Label(mig_wd, text="Les changements sont en cours, veuillez patienter...", font="none 14 bold", bg='#000000', fg='#fff', bd=0, justify=CENTER).place(x=50, y=700)
+        Label(mig_wd, text="Les changements sont en cours, veuillez patienter...", font="none 14 bold", bg='#000000',
+              fg='#fff', bd=0, justify=CENTER).place(x=50, y=700)
         print('archive dézippé')
         sql_file = ''
         admin_name = name.get()
@@ -401,7 +424,8 @@ def open_migration_window():
         contrat1 = "de contrat : 6539"
         contrat2 = var_list[27]
 
-        premier_pilote1 = "Adrien est le fondateur de {0} mais également de fotografik33 et visite-virtuelle33. Il fait également partie du collectif Creative4. Avec plus de 100 heures de vol sur des drones DJI, il est spécialisé dans la photographie et la vidéo pour les domaines industriel et commercial (3D, Cartographie, Mesures, Immobilier, Marketing ..).".format(titre_min2)
+        premier_pilote1 = "Adrien est le fondateur de {0} mais également de fotografik33 et visite-virtuelle33. Il fait également partie du collectif Creative4. Avec plus de 100 heures de vol sur des drones DJI, il est spécialisé dans la photographie et la vidéo pour les domaines industriel et commercial (3D, Cartographie, Mesures, Immobilier, Marketing ..).".format(
+            titre_min2)
         premier_pilote2 = var_list[28]
 
         second_pilote1 = "Riche d'une expérience de plus de 15 ans dans différents postes de l'audiovisuel (chef de plateau, assistant mise en scène ou encore cadreur et compositeur), Charles est un télé-pilote spécialisé sur notre offre TV & Cinéma (Broadcasting) mais également sur notre offre Agriculture."
@@ -585,10 +609,9 @@ def open_migration_window():
             with open(sql_path, 'w', encoding='utf-8') as _file:
                 for line in lines:
                     _file.write(line)
-        zip_file()
+        zip_folder()
         print('changements finis')
-
-        Label(mig_wd, text="Changements terminés, vous pouvez fermer l'application en toute sécurité !", font="none 14 bold", bg='#000000', fg='#fff', bd=0, justify=CENTER).place(x=50, y=700)
+        Label(mig_wd, text="Changements terminés, vous pouvez fermer l'application ou effectuer un transfert ftp dans 'sauvegarde'", font="none 11 bold", bg='#000000', fg='#fff', bd=0, justify=CENTER).place(x=50, y=670)
 
     global button_backward
     global button_forward
@@ -611,7 +634,6 @@ sauvegarde = create_button(root, "SAUVEGARDER", 165, 350)
 migration = create_button(root, " MIGRATION ", 835, 350)
 sauvegarde["command"] = save
 migration["command"] = open_migration_window
-
 
 # program loop
 root.mainloop()
