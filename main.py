@@ -111,7 +111,7 @@ def open_ftp_window():
     username_input = create_input(ftp_wd, "nom d'utilisateur", 50, 75, 325, 75)
     user_password = create_input(ftp_wd, "mot de passe", 50, 125, 325, 125)
     site_name = create_input(ftp_wd, "nom de l'archive", 50, 175, 325, 175)
-    user_path = create_input(ftp_wd, "chemin (vide = /)", 50, 225, 325, 225)
+    user_path = create_input(ftp_wd, "chemin du dossier", 50, 225, 325, 225)
 
     def retrieve_folder(hst, usr, pw, dir_name, pth):
         folder_name = dir_name.get()
