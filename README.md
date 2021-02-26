@@ -1,9 +1,9 @@
-# projet_drone33
+# <ins>Documentation projet Drone 33
 
-This is our internship project : drone 33. This shall be edited into further details later on in the project. This file will serv as a documentation for the project.
 
-## xamp version **7.3.20**
-## wordpress version **5.6**
+
+
+## wordpress archive version **5.6**
 ## Python version 3.6+
 <br><br>
 
@@ -16,6 +16,7 @@ Vous devez donc avoir python 3.6, ou plus, d'installer pour faire fonctionner no
 Sur Mac, vous devez aller sur ce site : https://www.python.org/downloads/release/python-380/ et suivre simplement le processus d'installation. <br>
 Sur Windows, allez sur un terminal et entrez : > `python3` <br>
 Cela va lancer votre Microsoft store sur la page de Python à télécharger. Vous pouvez donc à partir de ce moment-là suivre le processus d'installation.<br><br>
+Si rien ne s’affiche, rendez-vous directement sur le Microsoft Store et recherchez Python 3. (version la plus récente existante)
 
 
 Une fois Python d'installé, vous pouvez vous rendre directement dans le dossier sur lequel vous avez installé notre application, faire :<br><br>
@@ -59,14 +60,14 @@ Une fois le bouton cliqué, le bouton va se mettre en blanc et l'application va 
 Cela va donc vous ouvrir une nouvelle fenêtre et vous offrir un panel de possibilités de changements.
 
 ## Dans un premier temps et avant toutes choses, vous devez faire les changements de textes au niveau du slider d'images que vous verrez sur l'application.
-/!\ Il ne faut donc pas commencer par faire le changement des photos grâce aux boutons sur la gauche de la fenêtre. /!\
+/!\ Il ne faut donc pas commencer par importer les  photos grâce aux boutons sur la gauche de la fenêtre.  /!\
 
 ### Faire les changements de texte sur votre nouveau site à migrer
 
 La principale chose que vous allez voir son des screens avec des encadrés <b>JAUNE</b>. Ces encadrés représentent l'exactitude des changements qui vont être appliqués sur le site. Donc lorsqu'un texte est encadré d'un rectangle jaune, il faut le changer par exactement ce que vous souhaitez mettre à la place. Il est donc important de garder les majuscules, ponctuations, accents, parenthèses qui sont <b>BIEN VISIBLE DANS LE CARRÉ JAUNE</b>. Dans le cas contraire, il manquera surement ces derniers sur le site.
 <br>
 Pour faire un changement proprement, il faut donc :
-* 1- Aller sur l'image correspondante au changement
+* 1- Se trouver sur l'image correspondante au changement
 * 2- Écrire le texte à modifier dans la zone de texte juste en dessous du slider d'image
 * 3- Appuyer sur le bouton "valider"
 * 4- Passer à l'image suivante
@@ -76,7 +77,7 @@ Pour faire un changement proprement, il faut donc :
 
 <br>
 Si vous vous êtes trompé, ou vous voulez tout simplement modifier le changement que vous aviez déjà fait, il vous suffit de revenir sur l'image du slider en question et réécrire le changement à faire dans la zone de texte, et re valider. Le nouveau changement sera pris en compte.<br>
-Veillez à bien remplir chaque zone de texte et à bien appuyer sur valider pour chaque image du slider pour éviter toutes erreurs d'indentation.
+Veillez à bien remplir chaque zone de texte et à bien appuyer sur valider pour chaque image du slider pour éviter toutes erreurs.
 
 <br><br>
 
@@ -192,8 +193,9 @@ Vous pouvez enregistrer comme modèle le nouveau formulaire sur l'ancien modèle
 
 ### Pour changer les phrases à modifier sur l'application
 
-Ouvrez un IDE ou un éditeur de texte le fichier main.py.
-Allez dans la fonction "file operations" dans lequel sont répertoriées toutes les phrases déjà changées, et changez donc une phrase existante par le nouveau texte original.
+Ouvrez dans un IDE ou un éditeur de code le fichier main.py. Allez dans la fonction "file operations" dans lequel sont répertoriées toutes les phrases déjà changées, et changez donc une phrase existante par le nouveau texte original.
+Ces phrases se trouvent à partir de la ligne 383. **FAITES ATTENTION lorsque vous faites des changements sur le texte, les changements doivent être strictement égaux à ceux fait sur votre site, veillez à ne pas effacer les {0}, {1} etc**
+
 
 ## Tous les autres changements ou personnalisations que vous n'avez pas aperçu dans notre application, ou non décrite ici, sont à faire à la main, à travers Elementor ou l'onglet personnalisation de Wordpress directement
 <br>
@@ -210,7 +212,7 @@ Vous pouvez notamment faire :
 
 ## La fenêtre "SAUVEGARDE" :
 
-vous avez 2 possibilités : <br>
+vous avez 3 possibilités : <br>
 
 <b>Vous souhaitez mettre une archive sur un serveur FTP afin de la sauvegarder, pour ce faire :</b>
 
@@ -218,7 +220,7 @@ vous avez 2 possibilités : <br>
 *	Vérifiez que votre archive ainsi que l’installeur se situe bien à la racine de l’application
 *	Ecrire le nom que vous souhaitez pour votre dossier contenant l’archive ainsi que l’installeur
 *	Rentrez le chemin du dossier dans lequel vous souhaitez rentrer votre archive, si vous souhaitez le mettre à la racine, écrivez « / », si vous souhaitez le mettre dans un dossier appelé « toto » qui se trouve à la racine, écrivez /toto.
-*	Pour finir, appuyez sur le bouton « exporter » et patienter jusqu’à la fin du téléversement de l’archive. Le bouton va se mettre en blanc et l’application va charger votre archive sur le site, l’opération sera plus ou moins longue selon votre connexion internet (environ 1 minute pour un débit ascendant à 50 Mbps).
+*	Pour finir, appuyez sur le bouton « exporter sauv. » et patienter jusqu’à la fin du téléversement de l’archive. Le bouton va se mettre en blanc et l’application va charger votre archive sur le serveur, l’opération sera plus ou moins longue selon votre connexion internet (environ 1 minute pour un débit ascendant à 50 Mbps).
 
 NB : l’application peut possiblement se mettre dans un état « ne répond pas » le temps de ce chargement, il est simplement nécessaire d’attendre la fin du chargement.
 
@@ -228,8 +230,24 @@ NB : l’application peut possiblement se mettre dans un état « ne répond pas
 
 *	Rentrez vos identifiants de serveur FTP dans les champs correspondant
 *	Dans le champ du nom de l’archive, veillez à bien entrer le nom que vous avez choisis lors de l’exportation
-*	Appuyez sur le bouton « importer » et patienter jusqu’à la fin du téléchargement de l’archive. Le bouton va se mettre en blanc et l’application va charger votre archive sur le site, l’opération sera plus ou moins longue selon votre connexion internet (environ 1 minute pour un débit ascendant à 50 Mbps)
+*	Appuyez sur le bouton « importer sauv. » et patienter jusqu’à la fin du téléchargement de l’archive. Le bouton va se mettre en blanc et l’application va charger votre archive sur le serveur, l’opération sera plus ou moins longue selon votre connexion internet (environ 1 minute pour un débit descendant à 50 Mbps)
 
 NB : l’application peut possiblement se mettre dans un état « ne répond pas » le temps de ce chargement, il est simplement nécessaire d’attendre la fin du chargement.
+
+<br><br>
+
+**Vous souhaitez exporter votre archive nouvellement créée sur le serveur FTP correspondant à votre nom de domaine WordPress pour déployer votre site :**
+
+*   Rentrez vos identifiants de serveur FTP dans les champs correspondant
+*   Laissez vide le champ « nom de l’archive »
+*   Appuyez sur le bouton « importer sauv. » et patienter jusqu’à la fin du téléchargement de l’archive. Le bouton va se mettre en blanc et l’application va charger    votre archive sur le serveur, l’opération sera plus ou moins longue selon votre connexion internet (environ 1 minute pour un débit ascendant à 50 Mbps) Il vous suffira ensuite de vous rendre sur **www.nomdevotresite.fr/installer.php**
+
+<br><br>
+
+**Veuillez également noter qu’il est possible de redéployer sur votre site, une archive sauvegardée (en supposant qu’elle ait été stockée au préalable)**
+<br>
+
+**Pour cela il vous suffit de récupérer votre sauvegarde comme expliqué à la 2ème possibilité, de vous rendre dans l’explorateur de fichier à l’endroit ou vous gardez le programme de notre appli, de dézipper votre archive sauvegardée qui contiendra elle-même une archive et un fichier installer.php. Une fois cela fait, veillez à bien supprimer l’archive zippée de sauvegarde. Il est TRES important qu’il ne reste que l’archive se nommant « 20201122_drone33_bc68291ed983ab026628_20210108154840_archive.zip » (ou quelque chose de similaire) et l’installer.php, vous pourrez ensuite relancer notre appli et suivre la 3ème possibilité listée ci-dessus**
+
 
 

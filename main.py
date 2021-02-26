@@ -96,7 +96,6 @@ def make_ftp_folder(dirname):
 
 # event trigger functions
 def save():
-    print("sauvegarde")
     open_ftp_window()
 
 
@@ -110,7 +109,7 @@ def open_ftp_window():
     host_input = create_input(ftp_wd, "nom d'hôte", 50, 25, 325, 25)
     username_input = create_input(ftp_wd, "nom d'utilisateur", 50, 75, 325, 75)
     user_password = create_input(ftp_wd, "mot de passe", 50, 125, 325, 125)
-    site_name = create_input(ftp_wd, "nom de l'archive", 50, 175, 325, 175)
+    site_name = create_input(ftp_wd, "nom dossier sauvegarde", 50, 175, 325, 175)
     user_path = create_input(ftp_wd, "chemin du dossier", 50, 225, 325, 225)
 
     def retrieve_folder(hst, usr, pw, dir_name, pth):
@@ -131,7 +130,7 @@ def open_ftp_window():
                 ftp.retrbinary("RETR " + '{0}.zip'.format(folder_name), f.write, 1024)
 
             ftp.quit()
-        Label(ftp_wd, text="Votre archive a été importée!", font="none 14 bold", bg='#000000', fg='#fff', bd=0,
+        Label(ftp_wd, text="Votre sauvegarde a été importée!", font="none 14 bold", bg='#000000', fg='#fff', bd=0,
               justify=CENTER).place(x=50, y=325)
 
     def store_folder(hst, usr, pw, dir_name, pth):
@@ -140,7 +139,7 @@ def open_ftp_window():
         host = hst.get()
         username = usr.get()
         password = pw.get()
-        path = pth.get
+        path = pth.get()
 
         with FTP(host) as ftp:
             ftp.login(user=username, passwd=password)
@@ -154,12 +153,43 @@ def open_ftp_window():
 
             ftp.quit()
         os.remove('{0}.zip'.format(folder_name))
-        Label(ftp_wd, text="Votre archive a été exportée!", font="none 14 bold", bg='#000000', fg='#fff', bd=0, justify=CENTER).place(x=50, y=325)
+        Label(ftp_wd, text="Votre sauvegarde a été exportée!", font="none 14 bold", bg='#000000', fg='#fff', bd=0, justify=CENTER).place(x=50, y=325)
 
-    import_button = create_button(ftp_wd, "Importer", 225, 275)
-    export_button = create_button(ftp_wd, " Exporter ", 405, 275)
+    def store_site(hst, usr, pw, pth):
+        folder_name = ''
+        host = hst.get()
+        username = usr.get()
+        password = pw.get()
+        path = pth.get()
+
+        for dir in os.listdir('.'):
+            if dir.endswith('zip'):
+                folder_name = dir
+
+        with FTP(host) as ftp:
+            ftp.login(user=username, passwd=password)
+            print(ftp.getwelcome())
+
+            if path != '/':
+                ftp.cwd(path)
+
+            with open(folder_name, 'rb') as f:
+                ftp.storbinary('STOR ' + folder_name, f)
+
+            with open('installer.php', 'rb') as f:
+                ftp.storbinary('STOR ' + 'installer.php', f)
+
+            ftp.quit()
+        os.remove(folder_name)
+        os.remove('installer.php')
+        Label(ftp_wd, text="Votre site a été exporté, lancez nomdedomaine/installer.php sur le web!", font="none 11 bold", bg='#000000', fg='#fff', bd=0, justify=CENTER).place(x=50, y=350)
+
+    import_button = create_button(ftp_wd, "Importer sauv.", 100, 275)
+    export_button = create_button(ftp_wd, "Exporter sauv.", 305, 275)
+    export_site_button = create_button(ftp_wd, "Exporter site", 510, 275)
     import_button['command'] = lambda: retrieve_folder(host_input, username_input, user_password, site_name, user_path)
     export_button['command'] = lambda: store_folder(host_input, username_input, user_password, site_name, user_path)
+    export_site_button['command'] = lambda: store_site(host_input, username_input, user_password, user_path)
 
 
 def unzip():
@@ -286,7 +316,6 @@ def open_migration_window():
         button_forward = Button(mig_wd, text=">>", command=lambda: forward(img_number + 1, mig_wd)).place(x=340, y=380)
         button_backward = Button(mig_wd, text="<<", command=lambda: backward(img_number - 1, mig_wd)).place(x=340, y=310)
         slider_label.place(x=390, y=90)
-        print("backward ", slider_index)
 
         if img_number == 1:
             button_backward = Button(mig_wd, text="<<", state=DISABLED).place(x=340, y=310)
