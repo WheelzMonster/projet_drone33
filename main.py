@@ -111,17 +111,21 @@ def open_ftp_window():
     username_input = create_input(ftp_wd, "nom d'utilisateur", 50, 75, 325, 75)
     user_password = create_input(ftp_wd, "mot de passe", 50, 125, 325, 125)
     site_name = create_input(ftp_wd, "nom de l'archive", 50, 175, 325, 175)
-    path = create_input(ftp_wd, "chemin (vide = /)", 50, 225, 325, 225)
+    user_path = create_input(ftp_wd, "chemin (vide = /)", 50, 225, 325, 225)
 
-    def retrieve_folder(hst, usr, pw, dir_name):
+    def retrieve_folder(hst, usr, pw, dir_name, pth):
         folder_name = dir_name.get()
         host = hst.get()
         username = usr.get()
         password = pw.get()
+        path = pth.get()
 
         with FTP(host) as ftp:
             ftp.login(user=username, passwd=password)
             print(ftp.getwelcome())
+
+            if path != '/':
+                ftp.cwd(path)
 
             with open('{0}.zip'.format(folder_name), 'wb') as f:
                 ftp.retrbinary("RETR " + '{0}.zip'.format(folder_name), f.write, 1024)
@@ -130,16 +134,20 @@ def open_ftp_window():
         Label(ftp_wd, text="Votre archive a été importée!", font="none 14 bold", bg='#000000', fg='#fff', bd=0,
               justify=CENTER).place(x=50, y=325)
 
-    def store_folder(hst, usr, pw, dir_name):
+    def store_folder(hst, usr, pw, dir_name, pth):
         make_ftp_folder(dir_name)
         folder_name = dir_name.get()
         host = hst.get()
         username = usr.get()
         password = pw.get()
+        path = pth.get
 
         with FTP(host) as ftp:
             ftp.login(user=username, passwd=password)
             print(ftp.getwelcome())
+
+            if path != '/':
+                ftp.cwd(path)
 
             with open('{0}.zip'.format(folder_name), 'rb') as f:
                 ftp.storbinary('STOR ' + '{0}.zip'.format(folder_name), f)
@@ -150,8 +158,8 @@ def open_ftp_window():
 
     import_button = create_button(ftp_wd, "Importer", 225, 275)
     export_button = create_button(ftp_wd, " Exporter ", 405, 275)
-    import_button['command'] = lambda: retrieve_folder(host_input, username_input, user_password, site_name)
-    export_button['command'] = lambda: store_folder(host_input, username_input, user_password, site_name)
+    import_button['command'] = lambda: retrieve_folder(host_input, username_input, user_password, site_name, user_path)
+    export_button['command'] = lambda: store_folder(host_input, username_input, user_password, site_name, user_path)
 
 
 def unzip():
@@ -332,8 +340,6 @@ def open_migration_window():
             Path.rename(Path("{0}/site/wp-content/uploads/2020/04/{1}".format(actual_dir, img_path.name)), Path("{0}/site/wp-content/uploads/2020/04/CGV-{1}.pdf".format(actual_dir, variable_list[3])))
 
     def file_operations(var_list, name, pw, mail):
-        Label(mig_wd, text="Les changements sont en cours, veuillez patienter...", font="none 14 bold", bg='#000000',
-              fg='#fff', bd=0, justify=CENTER).place(x=50, y=700)
         print('archive dézippé')
         sql_file = ''
         admin_name = name.get()
