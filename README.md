@@ -28,7 +28,7 @@ Clique droit > ouvrir un terminal ici.
 <br>
 
 ### Bibliothèque à installer :
-*il faut bien évidement avoir python 3 et pip d'installé au préalable* <br>
+*il faut bien évidement avoir python 3 et pip d'installé au préalable.* <br>
 Pour installer pip, tapez donc ceci dans un terminal, peu importe votre emplacement sur le terminal:
 
 > `pip install Pillow`
@@ -41,7 +41,7 @@ Pour installer pip, tapez donc ceci dans un terminal, peu importe votre emplacem
 
  <br>
 
-Il faudra également mettre l'archive de votre site (créée par duplicator) à la racine de l'application. À savoir là où se trouve les dossiers et fichiers qui viennent d'être décrit.
+Il faudra également mettre l'archive de votre site ainsi que le fichier « installer.php » (créée par Duplicator) à la racine de l'application. À savoir là où se trouve les dossiers et fichiers qui viennent d'être décrit.
 
 ## Notice d'utilisation de l'interface de modification de site :
 
@@ -49,7 +49,9 @@ Il faudra également mettre l'archive de votre site (créée par duplicator) à 
 
 > `python3 main.py`
 
-Cela va donc lancer notre application pour vous retrouver sur le menu principal.
+Cela va donc lancer notre application pour vous retrouver sur le menu principal. Vous aurez donc accès à 2 utilisations différentes, l’option « sauvegarde » et l’option « migration ».
+
+## La fenêtre "MIGRATION" :
 
 ### Une fois situé sur le menu principal de l'interface, sélectionner le bouton "migration"
 
@@ -204,4 +206,30 @@ Vous pouvez notamment faire :
 * Changer les documents officiels des télé-pilotes
 * Changer le scénario de vol
 * tous autres changements d'identités, d'esthétique, de personnalisation du site que vous souhaitez...
+
+
+## La fenêtre "SAUVEGARDE" :
+
+vous avez 2 possibilités : <br>
+
+<b>Vous souhaitez mettre une archive sur un serveur FTP afin de la sauvegarder, pour ce faire :</b>
+
+*	Rentrez vos identifiants de serveur FTP dans les champs correspondant
+*	Vérifiez que votre archive ainsi que l’installeur se situe bien à la racine de l’application
+*	Ecrire le nom que vous souhaitez pour votre dossier contenant l’archive ainsi que l’installeur
+*	Rentrez le chemin du dossier dans lequel vous souhaitez rentrer votre archive, si vous souhaitez le mettre à la racine, écrivez « / », si vous souhaitez le mettre dans un dossier appelé « toto » qui se trouve à la racine, écrivez /toto.
+*	Pour finir, appuyez sur le bouton « exporter » et patienter jusqu’à la fin du téléversement de l’archive. Le bouton va se mettre en blanc et l’application va charger votre archive sur le site, l’opération sera plus ou moins longue selon votre connexion internet (environ 1 minute pour un débit ascendant à 50 Mbps).
+
+NB : l’application peut possiblement se mettre dans un état « ne répond pas » le temps de ce chargement, il est simplement nécessaire d’attendre la fin du chargement.
+
+<br><br>
+
+<b>Vous souhaitez importer une archive sauvegardée d’un serveur FTP :</b>
+
+*	Rentrez vos identifiants de serveur FTP dans les champs correspondant
+*	Dans le champ du nom de l’archive, veillez à bien entrer le nom que vous avez choisis lors de l’exportation
+*	Appuyez sur le bouton « importer » et patienter jusqu’à la fin du téléchargement de l’archive. Le bouton va se mettre en blanc et l’application va charger votre archive sur le site, l’opération sera plus ou moins longue selon votre connexion internet (environ 1 minute pour un débit ascendant à 50 Mbps)
+
+NB : l’application peut possiblement se mettre dans un état « ne répond pas » le temps de ce chargement, il est simplement nécessaire d’attendre la fin du chargement.
+
 
